@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng – SONNE</title>
+    <meta name="description" content="Giỏ hàng của bạn tại SONNE – Kiểm tra và thanh toán các sản phẩm đã chọn." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray">
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="SONNE trang chủ"><span class="logo-s">S</span>ONNE</a>
+            <div class="search-wrap">
+                <span class="material-icons-round search-icon">search</span>
+                <input type="search" id="main-search" class="search-input" placeholder="Tìm sản phẩm trên SONNE…"
+                    autocomplete="off" />
+                <button class="search-btn" id="search-submit-btn">Tìm</button>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="notify-btn" aria-label="Thông báo"><span
+                        class="material-icons-round">notifications_none</span></button>
+                <a href="cart.html" class="icon-btn cart-btn" id="cart-btn" aria-label="Giỏ hàng"
+                    style="text-decoration:none">
+                    <span class="material-icons-round" style="color:var(--primary-dark)">shopping_bag</span>
+                    <span class="badge" id="cart-badge">3</span>
+                </a>
+                <a href="profile.html" class="avatar-btn" id="avatar-btn" aria-label="Tài khoản">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5" alt="avatar"
+                        class="avatar-img" />
+                </a>
+                <a href="seller.html" class="btn btn-outline seller-btn">Đăng ký bán hàng</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+
+            <!-- Page Title -->
+            <div class="page-title-bar">
+                <h1 class="page-title">Giỏ hàng <span id="cart-count-label">(3 sản phẩm)</span></h1>
+                <a href="index.html" class="back-link"><span class="material-icons-round">arrow_back</span> Tiếp tục mua
+                    sắm</a>
+            </div>
+
+            <!-- CART CONTENT -->
+            <div class="cart-layout" id="cart-layout">
+                <!-- LEFT: Items -->
+                <div class="cart-items-col">
+
+                    <!-- Bulk actions -->
+                    <div class="bulk-actions-bar">
+                        <label class="custom-check">
+                            <input type="checkbox" id="select-all-chk" />
+                            <span class="check-box"></span>
+                            Chọn tất cả (<span id="selected-counter">0</span>)
+                        </label>
+                        <button class="bulk-delete-btn" id="bulk-delete-btn">
+                            <span class="material-icons-round">delete_outline</span> Xóa đã chọn
+                        </button>
+                    </div>
+
+                    <!-- Shop Group 1 -->
+                    <div class="cart-shop-group">
+                        <div class="shop-group-header">
+                            <label class="custom-check">
+                                <input type="checkbox" class="shop-chk" data-shop="1" />
+                                <span class="check-box"></span>
+                            </label>
+                            <span class="material-icons-round shop-icon">storefront</span>
+                            <span class="shop-group-name">TechStore Official</span>
+                            <span class="badge-mall" style="margin-left:8px">Mall</span>
+                        </div>
+
+                        <!-- Product row 1 -->
+                        <div class="cart-item" data-shop="1">
+                            <label class="custom-check">
+                                <input type="checkbox" class="item-chk" />
+                                <span class="check-box"></span>
+                            </label>
+                            <a href="product.html"><img src="https://picsum.photos/seed/sony1/200/200"
+                                    alt="Sony WH-1000XM5" class="cart-item-img" /></a>
+                            <div class="cart-item-info">
+                                <a href="product.html" class="cart-item-name">Tai nghe Bluetooth Sony WH-1000XM5 Chống
+                                    ồn chủ động cao cấp</a>
+                                <div class="cart-item-variant">Phân loại: Đen (Midnight Black)</div>
+                                <div class="cart-item-price-row">
+                                    <span class="cart-unit-price">5.990.000 ₫</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-qty">
+                                <div class="qty-control">
+                                    <button class="qty-btn dec-btn" aria-label="Giảm"><span
+                                            class="material-icons-round">remove</span></button>
+                                    <input type="number" value="1" min="1" max="99" class="qty-input" />
+                                    <button class="qty-btn inc-btn" aria-label="Tăng"><span
+                                            class="material-icons-round">add</span></button>
+                                </div>
+                            </div>
+                            <div class="cart-item-subtotal">5.990.000 ₫</div>
+                            <button class="remove-item-btn" aria-label="Xóa sản phẩm"><span
+                                    class="material-icons-round">delete_outline</span></button>
+                        </div>
+
+                        <!-- Product row 2 -->
+                        <div class="cart-item" data-shop="1">
+                            <label class="custom-check">
+                                <input type="checkbox" class="item-chk" />
+                                <span class="check-box"></span>
+                            </label>
+                            <a href="product.html"><img src="https://picsum.photos/seed/key2/200/200" alt="Keychron K2"
+                                    class="cart-item-img" /></a>
+                            <div class="cart-item-info">
+                                <a href="product.html" class="cart-item-name">Bàn phím cơ Keychron K2 Pro Wireless RGB
+                                    Compact 75% – Gateron Pro Red</a>
+                                <div class="cart-item-variant">Phân loại: Gateron Red (Đỏ)</div>
+                                <div class="cart-item-price-row">
+                                    <span class="cart-old-price">3.200.000 ₫</span>
+                                    <span class="cart-unit-price">1.990.000 ₫</span>
+                                    <span class="disc-badge">-38%</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-qty">
+                                <div class="qty-control">
+                                    <button class="qty-btn dec-btn" aria-label="Giảm"><span
+                                            class="material-icons-round">remove</span></button>
+                                    <input type="number" value="1" min="1" max="99" class="qty-input" />
+                                    <button class="qty-btn inc-btn" aria-label="Tăng"><span
+                                            class="material-icons-round">add</span></button>
+                                </div>
+                            </div>
+                            <div class="cart-item-subtotal">1.990.000 ₫</div>
+                            <button class="remove-item-btn" aria-label="Xóa sản phẩm"><span
+                                    class="material-icons-round">delete_outline</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Group 2 -->
+                    <div class="cart-shop-group">
+                        <div class="shop-group-header">
+                            <label class="custom-check">
+                                <input type="checkbox" class="shop-chk" data-shop="2" />
+                                <span class="check-box"></span>
+                            </label>
+                            <span class="material-icons-round shop-icon">storefront</span>
+                            <span class="shop-group-name">FashionVibe VN</span>
+                        </div>
+
+                        <div class="cart-item" data-shop="2">
+                            <label class="custom-check">
+                                <input type="checkbox" class="item-chk" />
+                                <span class="check-box"></span>
+                            </label>
+                            <a href="product.html"><img src="https://picsum.photos/seed/cloth3/200/200" alt="Áo thun"
+                                    class="cart-item-img" /></a>
+                            <div class="cart-item-info">
+                                <a href="product.html" class="cart-item-name">Áo phông basic Oversized Form Rộng Unisex
+                                    – Cotton 100% thoáng mát</a>
+                                <div class="cart-item-variant">Phân loại: Trắng | L</div>
+                                <div class="cart-item-price-row">
+                                    <span class="cart-old-price">450.000 ₫</span>
+                                    <span class="cart-unit-price">259.000 ₫</span>
+                                    <span class="disc-badge">-42%</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-qty">
+                                <div class="qty-control">
+                                    <button class="qty-btn dec-btn" aria-label="Giảm"><span
+                                            class="material-icons-round">remove</span></button>
+                                    <input type="number" value="2" min="1" max="99" class="qty-input" />
+                                    <button class="qty-btn inc-btn" aria-label="Tăng"><span
+                                            class="material-icons-round">add</span></button>
+                                </div>
+                            </div>
+                            <div class="cart-item-subtotal">518.000 ₫</div>
+                            <button class="remove-item-btn" aria-label="Xóa sản phẩm"><span
+                                    class="material-icons-round">delete_outline</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Order Summary -->
+                <div class="cart-summary-col">
+                    <div class="order-summary-card">
+                        <h2 class="summary-title">Tóm tắt đơn hàng</h2>
+
+                        <div class="voucher-row">
+                            <span class="material-icons-round">local_offer</span>
+                            <input type="text" class="voucher-input" placeholder="Nhập mã giảm giá"
+                                id="voucher-input" />
+                            <button class="voucher-apply-btn" id="voucher-apply">Áp dụng</button>
+                        </div>
+
+                        <div class="summary-lines">
+                            <div class="summary-line">
+                                <span>Tạm tính</span>
+                                <span id="s-subtotal">8.498.000 ₫</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Giảm giá</span>
+                                <span class="text-danger" id="s-discount">–0 ₫</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Phí vận chuyển</span>
+                                <span class="text-success" id="s-ship">Miễn phí</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-total-row">
+                            <span>Tổng thanh toán</span>
+                            <span class="summary-total" id="s-total">8.498.000 ₫</span>
+                        </div>
+
+                        <a href="checkout.html" class="btn btn-primary ripple checkout-cta" id="checkout-cta">
+                            <span class="material-icons-round">arrow_forward</span> Tiến hành thanh toán
+                        </a>
+                        <p class="summary-note">Bạn sẽ xác nhận địa chỉ và phương thức thanh toán ở bước tiếp theo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMPTY STATE (hidden by default) -->
+            <div class="cart-empty" id="cart-empty" style="display:none">
+                <div class="empty-illustration">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" width="160">
+                        <circle cx="100" cy="100" r="80" fill="#F5F5F5" />
+                        <rect x="60" y="70" width="80" height="70" rx="10" fill="#E0E0E0" />
+                        <path d="M75 70 L80 50 L120 50 L125 70" stroke="#BDBDBD" stroke-width="3" fill="none"
+                            stroke-linecap="round" />
+                        <circle cx="80" cy="145" r="8" fill="#BDBDBD" />
+                        <circle cx="120" cy="145" r="8" fill="#BDBDBD" />
+                        <path d="M85 95 Q100 110 115 95" stroke="#9E9E9E" stroke-width="2.5" fill="none"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h2 class="empty-title">Giỏ hàng của bạn đang trống</h2>
+                <p class="empty-sub">Hãy khám phá hàng triệu sản phẩm trên SONNE!</p>
+                <a href="index.html" class="btn btn-primary ripple">
+                    <span class="material-icons-round">explore</span> Khám phá sản phẩm
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col brand-col">
+                <div class="footer-logo"><span class="logo-s">S</span>ONNE</div>
+                <p class="footer-desc">Nền tảng thương mại điện tử hàng đầu Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Về SONNE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Chính sách</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Điều khoản</a></li>
+                    <li><a href="#">Bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Hỗ trợ</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Trợ giúp</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Kết nối</h4>
+                <div class="footer-contact">
+                    <p>support@sonne.vn</p>
+                    <p>1900 1234</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 SONNE. All rights reserved.</p>
+                <div class="payment-icons"><span class="pay-chip">VISA</span><span
+                        class="pay-chip">MasterCard</span><span class="pay-chip">MoMo</span><span
+                        class="pay-chip">ZaloPay</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"><span class="material-icons-round">check_circle</span><span id="toast-msg">Đã cập nhật
+            giỏ hàng!</span></div>
+
+    <script src="app.js"></script>
+    <script>
+        // Cart page interactions
+        const selectAllChk = document.getElementById('select-all-chk');
+        const itemChks = document.querySelectorAll('.item-chk');
+        const shopChks = document.querySelectorAll('.shop-chk');
+        const counterEl = document.getElementById('selected-counter');
+        const bulkDeleteBtn = document.getElementById('bulk-delete-btn');
+
+        function updateCounter() {
+            const selected = document.querySelectorAll('.item-chk:checked').length;
+            counterEl.textContent = selected;
+            selectAllChk.checked = selected === itemChks.length;
+            selectAllChk.indeterminate = selected > 0 && selected < itemChks.length;
+        }
+
+        selectAllChk.addEventListener('change', () => {
+            itemChks.forEach(chk => chk.checked = selectAllChk.checked);
+            shopChks.forEach(chk => chk.checked = selectAllChk.checked);
+            updateCounter();
+        });
+
+        shopChks.forEach(shopChk => {
+            shopChk.addEventListener('change', () => {
+                const shopId = shopChk.dataset.shop;
+                document.querySelectorAll(`.cart-item[data-shop="${shopId}"] .item-chk`).forEach(chk => {
+                    chk.checked = shopChk.checked;
+                });
+                updateCounter();
+            });
+        });
+
+        itemChks.forEach(chk => chk.addEventListener('change', updateCounter));
+
+        // Quantity
+        document.querySelectorAll('.cart-shop-group').forEach(group => {
+            group.querySelectorAll('.cart-item').forEach(item => {
+                const qtyInput = item.querySelector('.qty-input');
+                item.querySelector('.dec-btn').addEventListener('click', () => {
+                    let v = parseInt(qtyInput.value); if (v > 1) qtyInput.value = v - 1;
+                });
+                item.querySelector('.inc-btn').addEventListener('click', () => {
+                    let v = parseInt(qtyInput.value); if (v < 99) qtyInput.value = v + 1;
+                });
+                // Remove
+                item.querySelector('.remove-item-btn').addEventListener('click', () => {
+                    item.style.transition = 'opacity .3s, transform .3s';
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(24px)';
+                    setTimeout(() => item.remove(), 300);
+                    showToast('Đã xóa sản phẩm khỏi giỏ hàng');
+                });
+            });
+        });
+
+        // Voucher
+        document.getElementById('voucher-apply').addEventListener('click', () => {
+            const code = document.getElementById('voucher-input').value.trim().toUpperCase();
+            if (code === 'SONNE10') {
+                document.getElementById('s-discount').textContent = '–849.800 ₫';
+                document.getElementById('s-total').textContent = '7.648.200 ₫';
+                showToast('Áp dụng mã SONNE10 thành công! Giảm 10%');
+            } else {
+                showToast('Mã giảm giá không hợp lệ hoặc đã hết hạn');
+            }
+        });
+
+        // Search redirect
+        document.getElementById('search-submit-btn').addEventListener('click', () => {
+            const q = document.getElementById('main-search').value.trim();
+            if (q) window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+        });
+        document.getElementById('main-search').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('search-submit-btn').click();
+        });
+    </script>
+</body>
+
+</html>

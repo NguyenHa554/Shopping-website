@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán – SONNE</title>
+    <meta name="description" content="Hoàn tất đặt hàng tại SONNE – Nhập địa chỉ và chọn phương thức thanh toán." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray">
+
+    <!-- SIMPLIFIED CHECKOUT HEADER -->
+    <header class="checkout-header">
+        <div class="container checkout-header-inner">
+            <a href="index.html" class="logo"><span class="logo-s">S</span>ONNE</a>
+            <div class="checkout-breadcrumb">
+                <a href="cart.html" class="breadcrumb-step done">
+                    <span class="material-icons-round">shopping_bag</span> Giỏ hàng
+                </a>
+                <span class="material-icons-round breadcrumb-sep">chevron_right</span>
+                <span class="breadcrumb-step active">
+                    <span class="material-icons-round">credit_card</span> Thanh toán
+                </span>
+            </div>
+            <div class="checkout-secure">
+                <span class="material-icons-round" style="color:var(--primary-dark)">lock</span>
+                <span>Thanh toán bảo mật</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <div class="container checkout-layout">
+
+            <!-- LEFT: Steps -->
+            <div class="checkout-steps-col">
+
+                <!-- A) Shipping Address -->
+                <div class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="step-number">1</span>
+                        <h2>Địa chỉ nhận hàng</h2>
+                        <button class="btn btn-outline btn-sm" id="change-addr-btn">Thay đổi</button>
+                    </div>
+                    <div class="addr-info">
+                        <div class="addr-name"><strong>Nguyễn Văn A</strong> <span class="addr-phone">| 0901 234
+                                567</span></div>
+                        <div class="addr-full">123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</div>
+                        <span class="addr-tag">Mặc định</span>
+                    </div>
+                </div>
+
+                <!-- B) Product List -->
+                <div class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="step-number">2</span>
+                        <h2>Sản phẩm đặt hàng</h2>
+                    </div>
+
+                    <div class="checkout-shop-group">
+                        <div class="co-shop-header">
+                            <span class="material-icons-round" style="font-size:18px">storefront</span>
+                            <strong>TechStore Official</strong>
+                        </div>
+                        <div class="co-item">
+                            <img src="https://picsum.photos/seed/sony1/160/160" alt="Sony WH-1000XM5"
+                                class="co-item-img" />
+                            <div class="co-item-info">
+                                <p class="co-item-name">Tai nghe Bluetooth Sony WH-1000XM5 Chống ồn chủ động cao cấp</p>
+                                <p class="co-item-variant">Phân loại: Đen | x1</p>
+                            </div>
+                            <div class="co-item-price">5.990.000 ₫</div>
+                        </div>
+                        <div class="co-item">
+                            <img src="https://picsum.photos/seed/key2/160/160" alt="Keychron K2" class="co-item-img" />
+                            <div class="co-item-info">
+                                <p class="co-item-name">Bàn phím cơ Keychron K2 Pro Wireless RGB</p>
+                                <p class="co-item-variant">Phân loại: Gateron Red | x1</p>
+                            </div>
+                            <div class="co-item-price">1.990.000 ₫</div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-shop-group">
+                        <div class="co-shop-header">
+                            <span class="material-icons-round" style="font-size:18px">storefront</span>
+                            <strong>FashionVibe VN</strong>
+                        </div>
+                        <div class="co-item">
+                            <img src="https://picsum.photos/seed/cloth3/160/160" alt="Áo thun" class="co-item-img" />
+                            <div class="co-item-info">
+                                <p class="co-item-name">Áo phông basic Oversized Form Rộng Unisex Cotton 100%</p>
+                                <p class="co-item-variant">Phân loại: Trắng / L | x2</p>
+                            </div>
+                            <div class="co-item-price">518.000 ₫</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C) Shipping Method -->
+                <div class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="step-number">3</span>
+                        <h2>Phương thức vận chuyển</h2>
+                    </div>
+                    <div class="ship-options">
+                        <label class="ship-option">
+                            <input type="radio" name="shipping" value="standard" checked />
+                            <div class="ship-option-body">
+                                <span class="ship-option-icon">🚚</span>
+                                <div class="ship-option-info">
+                                    <strong>Giao tiêu chuẩn</strong>
+                                    <span class="ship-eta">Dự kiến: 05 – 07/03/2026</span>
+                                </div>
+                                <span class="ship-price text-success">Miễn phí</span>
+                            </div>
+                        </label>
+                        <label class="ship-option">
+                            <input type="radio" name="shipping" value="express" />
+                            <div class="ship-option-body">
+                                <span class="ship-option-icon">⚡</span>
+                                <div class="ship-option-info">
+                                    <strong>Giao nhanh (2 giờ)</strong>
+                                    <span class="ship-eta">Dự kiến: Hôm nay trước 17:00</span>
+                                </div>
+                                <span class="ship-price">30.000 ₫</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- D) Payment Method -->
+                <div class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="step-number">4</span>
+                        <h2>Phương thức thanh toán</h2>
+                    </div>
+                    <div class="payment-options">
+                        <label class="payment-option active" id="pay-cod">
+                            <input type="radio" name="payment" value="cod" checked />
+                            <span class="pay-icon">💵</span>
+                            <div>
+                                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                                <span class="pay-sub">Trả tiền mặt khi nhận hàng, không mất phí</span>
+                            </div>
+                            <span class="pay-check"><span class="material-icons-round">check_circle</span></span>
+                        </label>
+                        <label class="payment-option" id="pay-ewallet">
+                            <input type="radio" name="payment" value="ewallet" />
+                            <span class="pay-icon">📱</span>
+                            <div>
+                                <strong>Ví điện tử</strong>
+                                <span class="pay-sub">MoMo, ZaloPay, VNPay</span>
+                            </div>
+                            <span class="pay-check"><span class="material-icons-round">check_circle</span></span>
+                        </label>
+                        <label class="payment-option" id="pay-bank">
+                            <input type="radio" name="payment" value="bank" />
+                            <span class="pay-icon">💳</span>
+                            <div>
+                                <strong>Thẻ ngân hàng</strong>
+                                <span class="pay-sub">Visa, Mastercard, ATM nội địa</span>
+                            </div>
+                            <span class="pay-check"><span class="material-icons-round">check_circle</span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Order Summary -->
+            <div class="checkout-summary-col">
+                <div class="order-summary-card sticky-summary">
+                    <h2 class="summary-title">Tóm tắt đơn hàng</h2>
+
+                    <div class="voucher-row">
+                        <span class="material-icons-round">local_offer</span>
+                        <input type="text" class="voucher-input" placeholder="Nhập mã voucher" />
+                        <button class="voucher-apply-btn">Áp dụng</button>
+                    </div>
+
+                    <div class="summary-lines">
+                        <div class="summary-line"><span>Tổng tiền hàng</span><span>8.498.000 ₫</span></div>
+                        <div class="summary-line"><span>Phí vận chuyển</span><span class="text-success"
+                                id="co-ship-fee">Miễn phí</span></div>
+                        <div class="summary-line"><span>Giảm giá</span><span class="text-danger">–0 ₫</span></div>
+                    </div>
+
+                    <div class="summary-total-row">
+                        <span>Tổng thanh toán</span>
+                        <span class="summary-total" id="co-total">8.498.000 ₫</span>
+                    </div>
+
+                    <button class="btn btn-primary ripple checkout-cta" id="place-order-btn">
+                        <span class="material-icons-round">check</span> Đặt hàng
+                    </button>
+                    <p class="summary-note" style="text-align:center;margin-top:12px">
+                        Bằng việc đặt hàng, bạn đồng ý với <a href="#" style="color:var(--primary-dark)">điều khoản sử
+                            dụng</a> của SONNE.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Success Modal -->
+    <div class="modal-overlay" id="success-modal-overlay" role="dialog" aria-modal="true">
+        <div class="success-modal">
+            <div class="success-icon-wrap">
+                <span class="material-icons-round success-check">check_circle</span>
+            </div>
+            <h2 class="success-title">Đặt hàng thành công! 🎉</h2>
+            <p class="success-sub">Mã đơn hàng: <strong>#SONNE20260001</strong></p>
+            <p class="success-msg">Cảm ơn bạn đã mua sắm tại SONNE. Chúng tôi sẽ xử lý và giao hàng sớm nhất có thể!</p>
+            <div class="success-actions">
+                <a href="profile.html" class="btn btn-outline ripple">Xem đơn hàng</a>
+                <a href="index.html" class="btn btn-primary ripple">Tiếp tục mua sắm</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"><span class="material-icons-round">check_circle</span><span id="toast-msg">Cập nhật
+            thành công!</span></div>
+
+    <script src="app.js"></script>
+    <script>
+        // Shipping method
+        document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                const fee = radio.value === 'express' ? '30.000 ₫' : 'Miễn phí';
+                const total = radio.value === 'express' ? '8.528.000 ₫' : '8.498.000 ₫';
+                document.getElementById('co-ship-fee').textContent = fee;
+                document.getElementById('co-ship-fee').className = radio.value === 'express' ? '' : 'text-success';
+                document.getElementById('co-total').textContent = total;
+            });
+        });
+
+        // Payment options active state
+        document.querySelectorAll('.payment-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+            });
+        });
+
+        // Place order
+        document.getElementById('place-order-btn').addEventListener('click', () => {
+            const overlay = document.getElementById('success-modal-overlay');
+            overlay.classList.add('open');
+        });
+
+        document.getElementById('success-modal-overlay').addEventListener('click', e => {
+            if (e.target === document.getElementById('success-modal-overlay')) {
+                document.getElementById('success-modal-overlay').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+
+</html>

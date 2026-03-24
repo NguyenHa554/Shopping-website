@@ -1,0 +1,33 @@
+.env
+.env.*
+!.env.example
+
+# Local database dumps
+*.sql
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Runtime files
+*.log
+*.tmp
+*.temp
+/tmp/
+/temp/
+/cache/
+/logs/
+
+# Uploaded/generated assets
+/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tài khoản của tôi – SONNE</title>
+    <meta name="description" content="Quản lý hồ sơ, địa chỉ và đơn hàng của bạn tại SONNE." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray">
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="SONNE trang chủ"><span class="logo-s">S</span>ONNE</a>
+            <div class="search-wrap">
+                <span class="material-icons-round search-icon">search</span>
+                <input type="search" id="main-search" class="search-input" placeholder="Tìm sản phẩm trên SONNE…"
+                    autocomplete="off" />
+                <button class="search-btn" id="search-submit-btn">Tìm</button>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="notify-btn" aria-label="Thông báo"><span
+                        class="material-icons-round">notifications_none</span></button>
+                <a href="cart.html" class="icon-btn cart-btn" aria-label="Giỏ hàng" style="text-decoration:none">
+                    <span class="material-icons-round">shopping_bag</span>
+                    <span class="badge" id="cart-badge">3</span>
+                </a>
+                <a href="profile.html" class="avatar-btn active-avatar" id="avatar-btn" aria-label="Tài khoản">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5" alt="avatar"
+                        class="avatar-img" />
+                </a>
+                <a href="seller.html" class="btn btn-outline seller-btn">Đăng ký bán hàng</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container profile-layout">
+
+            <!-- SIDEBAR NAV -->
+            <aside class="profile-sidebar">
+                <div class="profile-sidebar-user">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5"
+                        class="sidebar-avatar" alt="Avatar" />
+                    <div>
+                        <div class="sidebar-username">Nguyễn Văn A</div>
+                        <a href="#" class="sidebar-edit-link"><span class="material-icons-round"
+                                style="font-size:14px">edit</span> Chỉnh sửa</a>
+                    </div>
+                </div>
+                <nav class="profile-nav">
+                    <a href="#" class="profile-nav-item active" data-section="profile">
+                        <span class="material-icons-round">person</span> Hồ sơ của tôi
+                    </a>
+                    <a href="#" class="profile-nav-item" data-section="orders">
+                        <span class="material-icons-round">receipt_long</span> Đơn mua
+                    </a>
+                    <a href="#" class="profile-nav-item" data-section="addresses">
+                        <span class="material-icons-round">location_on</span> Địa chỉ giao hàng
+                    </a>
+                    <a href="#" class="profile-nav-item" data-section="password">
+                        <span class="material-icons-round">lock</span> Đổi mật khẩu
+                    </a>
+                    <a href="#" class="profile-nav-item" data-section="notifications">
+                        <span class="material-icons-round">notifications</span> Thông báo
+                    </a>
+                    <a href="index.html" class="profile-nav-item profile-logout">
+                        <span class="material-icons-round">logout</span> Đăng xuất
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <div class="profile-content">
+
+                <!-- SECTION: PROFILE -->
+                <div class="profile-section active" id="section-profile">
+                    <div class="profile-section-header">
+                        <h2>Hồ sơ của tôi</h2>
+                        <p>Quản lý thông tin cá nhân để bảo mật tài khoản</p>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-form-area">
+                            <div class="form-row">
+                                <label class="form-label">Họ và tên</label>
+                                <input type="text" class="form-input" value="Nguyễn Văn A" />
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" value="nguyenvana@gmail.com" />
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-input" value="0901 234 567" />
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Giới tính</label>
+                                <div class="gender-options">
+                                    <label class="gender-opt"><input type="radio" name="gender" checked /> Nam</label>
+                                    <label class="gender-opt"><input type="radio" name="gender" /> Nữ</label>
+                                    <label class="gender-opt"><input type="radio" name="gender" /> Khác</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Ngày sinh</label>
+                                <div class="dob-inputs">
+                                    <select class="form-select">
+                                        <option>01</option>
+                                    </select>
+                                    <select class="form-select">
+                                        <option>Tháng 1</option>
+                                    </select>
+                                    <select class="form-select">
+                                        <option>1995</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary ripple save-btn" id="save-profile-btn">Lưu thay đổi</button>
+                        </div>
+                        <div class="profile-avatar-area">
+                            <div class="avatar-upload-wrap">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5"
+                                    class="profile-avatar-large" alt="Avatar" id="preview-avatar" />
+                                <label class="avatar-upload-btn" for="avatar-file-input">
+                                    <span class="material-icons-round">photo_camera</span>
+                                </label>
+                                <input type="file" id="avatar-file-input" accept="image/*" style="display:none" />
+                            </div>
+                            <p class="avatar-hint">Dung lượng tối đa 1 MB<br />Định dạng: JPEG, PNG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: ORDERS -->
+                <div class="profile-section" id="section-orders">
+                    <div class="profile-section-header">
+                        <h2>Đơn mua</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="order-tabs" id="order-tabs">
+                            <button class="order-tab active" data-status="all">Tất cả</button>
+                            <button class="order-tab" data-status="pending">Chờ xác nhận</button>
+                            <button class="order-tab" data-status="shipping">Đang giao</button>
+                            <button class="order-tab" data-status="delivered">Hoàn thành</button>
+                            <button class="order-tab" data-status="cancelled">Đã hủy</button>
+                        </div>
+
+                        <div class="order-list" id="order-list">
+                            <!-- Order cards injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: ADDRESSES -->
+                <div class="profile-section" id="section-addresses">
+                    <div class="profile-section-header">
+                        <h2>Địa chỉ giao hàng</h2>
+                        <button class="btn btn-primary ripple btn-sm" id="add-addr-btn">
+                            <span class="material-icons-round">add</span> Thêm địa chỉ mới
+                        </button>
+                    </div>
+                    <div class="profile-card">
+                        <div class="addr-list">
+                            <div class="addr-card">
+                                <div class="addr-card-info">
+                                    <div class="addr-card-name"><strong>Nguyễn Văn A</strong> | 0901 234 567 <span
+                                            class="addr-tag">Mặc định</span></div>
+                                    <div class="addr-card-full">123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, Thành phố Hồ
+                                        Chí Minh</div>
+                                </div>
+                                <div class="addr-card-actions">
+                                    <button class="btn btn-outline btn-sm">Chỉnh sửa</button>
+                                    <button class="btn btn-sm text-danger addr-delete-btn">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="addr-card">
+                                <div class="addr-card-info">
+                                    <div class="addr-card-name"><strong>Nguyễn Văn A</strong> | 0912 345 678</div>
+                                    <div class="addr-card-full">456 Trần Hưng Đạo, Phường 5, Quận 5, Thành phố Hồ Chí
+                                        Minh</div>
+                                </div>
+                                <div class="addr-card-actions">
+                                    <button class="btn btn-outline btn-sm">Chỉnh sửa</button>
+                                    <button class="btn btn-sm text-danger addr-delete-btn">Xóa</button>
+                                    <button class="btn btn-outline btn-sm">Đặt làm mặc định</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: PASSWORD -->
+                <div class="profile-section" id="section-password">
+                    <div class="profile-section-header">
+                        <h2>Đổi mật khẩu</h2>
+                    </div>
+                    <div class="profile-card" style="max-width: 480px">
+                        <div class="form-row">
+                            <label class="form-label">Mật khẩu hiện tại</label>
+                            <input type="password" class="form-input" placeholder="Nhập mật khẩu hiện tại" />
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">Mật khẩu mới</label>
+                            <input type="password" class="form-input" placeholder="Ít nhất 8 ký tự" />
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">Xác nhận mật khẩu mới</label>
+                            <input type="password" class="form-input" placeholder="Nhập lại mật khẩu mới" />
+                        </div>
+                        <button class="btn btn-primary ripple save-btn">Cập nhật mật khẩu</button>
+                    </div>
+                </div>
+
+                <!-- SECTION: NOTIFICATIONS -->
+                <div class="profile-section" id="section-notifications">
+                    <div class="profile-section-header">
+                        <h2>Cài đặt thông báo</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="notif-setting">
+                            <div><strong>Đơn hàng & Giao hàng</strong>
+                                <p>Cập nhật trạng thái đơn hàng theo thời gian thực</p>
+                            </div>
+                            <label class="toggle-switch"><input type="checkbox" checked /><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <div class="notif-setting">
+                            <div><strong>Flash Sale & Khuyến mãi</strong>
+                                <p>Nhận thông báo về flash sale và ưu đãi độc quyền</p>
+                            </div>
+                            <label class="toggle-switch"><input type="checkbox" checked /><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <div class="notif-setting">
+                            <div><strong>Sản phẩm yêu thích</strong>
+                                <p>Khi giá giảm hoặc sắp hết hàng</p>
+                            </div>
+                            <label class="toggle-switch"><input type="checkbox" /><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <button class="btn btn-primary ripple save-btn">Lưu cài đặt</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Address Modal -->
+    <div class="modal-overlay" id="addr-modal-overlay">
+        <div class="addr-modal">
+            <div class="addr-modal-header">
+                <h3>Thêm địa chỉ mới</h3>
+                <button class="modal-close" id="addr-modal-close"><span
+                        class="material-icons-round">close</span></button>
+            </div>
+            <div class="addr-modal-body">
+                <div class="form-row"><label class="form-label">Họ và tên người nhận</label><input type="text"
+                        class="form-input" placeholder="Nhập họ tên" /></div>
+                <div class="form-row"><label class="form-label">Số điện thoại</label><input type="tel"
+                        class="form-input" placeholder="09x xxx xxxx" /></div>
+                <div class="form-row"><label class="form-label">Tỉnh / Thành phố</label><select class="form-select"
+                        style="width:100%">
+                        <option>Thành phố Hồ Chí Minh</option>
+                        <option>Hà Nội</option>
+                        <option>Đà Nẵng</option>
+                    </select></div>
+                <div class="form-row"><label class="form-label">Địa chỉ chi tiết</label><input type="text"
+                        class="form-input" placeholder="Số nhà, tên đường, phường/xã..." /></div>
+                <div class="form-row"><label class="form-label-inline"><input type="checkbox" /> Đặt làm địa chỉ mặc
+                        định</label></div>
+            </div>
+            <div class="addr-modal-footer">
+                <button class="btn btn-outline ripple" id="addr-modal-cancel">Hủy</button>
+                <button class="btn btn-primary ripple" id="addr-modal-save"><span
+                        class="material-icons-round">check</span> Lưu địa chỉ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col brand-col">
+                <div class="footer-logo"><span class="logo-s">S</span>ONNE</div>
+                <p class="footer-desc">Nền tảng thương mại điện tử hàng đầu Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Về SONNE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Chính sách</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Điều khoản</a></li>
+                    <li><a href="#">Bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Hỗ trợ</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Trợ giúp</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Kết nối</h4>
+                <div class="footer-contact">
+                    <p>support@sonne.vn</p>
+                    <p>1900 1234</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 SONNE. All rights reserved.</p>
+                <div class="payment-icons"><span class="pay-chip">VISA</span><span class="pay-chip">MoMo</span><span
+                        class="pay-chip">ZaloPay</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"><span class="material-icons-round">check_circle</span><span id="toast-msg">Lưu thành
+            công!</span></div>
+
+    <script src="app.js"></script>
+    <script>
+        // Sidebar nav
+        document.querySelectorAll('.profile-nav-item[data-section]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const section = link.dataset.section;
+                document.querySelectorAll('.profile-nav-item').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                document.querySelectorAll('.profile-section').forEach(s => s.classList.remove('active'));
+                const target = document.getElementById(`section-${section}`);
+                if (target) target.classList.add('active');
+            });
+        });
+
+        // Save profile
+        document.getElementById('save-profile-btn').addEventListener('click', () => showToast('Đã lưu thay đổi thành công!'));
+
+        // Avatar upload preview
+        document.getElementById('avatar-file-input').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = e => { document.getElementById('preview-avatar').src = e.target.result; };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Orders data
+        const ORDERS = [
+            { id: '#SONNE20260001', img: 'https://picsum.photos/seed/sony1/80/80', name: 'Tai nghe Sony WH-1000XM5', status: 'delivered', statusLabel: 'Hoàn thành', total: '5.990.000 ₫' },
+            { id: '#SONNE20260002', img: 'https://picsum.photos/seed/iph101/80/80', name: 'iPhone 15 Pro Max 256GB', status: 'shipping', statusLabel: 'Đang giao', total: '31.990.000 ₫' },
+            { id: '#SONNE20260003', img: 'https://picsum.photos/seed/cloth3/80/80', name: 'Áo phông Oversized Unisex (x2)', status: 'pending', statusLabel: 'Chờ xác nhận', total: '518.000 ₫' },
+        ];
+
+        function renderOrders(filter = 'all') {
+            const list = document.getElementById('order-list');
+            const filtered = filter === 'all' ? ORDERS : ORDERS.filter(o => o.status === filter);
+            if (!filtered.length) {
+                list.innerHTML = `<div class="orders-empty">
+          <svg viewBox="0 0 120 120" fill="none" width="100"><circle cx="60" cy="60" r="50" fill="#F5F5F5"/><rect x="35" y="40" width="50" height="45" rx="6" fill="#E0E0E0"/><rect x="42" y="52" width="36" height="4" rx="2" fill="#BDBDBD"/><rect x="42" y="62" width="24" height="4" rx="2" fill="#BDBDBD"/></svg>
+          <p>Bạn chưa có đơn hàng nào ở trạng thái này</p>
+          <a href="index.html" class="btn btn-primary ripple">Mua sắm ngay</a>
+        </div>`;
+                return;
+            }
+            list.innerHTML = filtered.map(o => `
+        <div class="order-card">
+          <div class="order-card-header">
+            <span class="order-id">${o.id}</span>
+            <span class="order-status-badge status-${o.status}">${o.statusLabel}</span>
+          </div>
+          <div class="order-card-body">
+            <img src="${o.img}" alt="${o.name}" class="order-product-img" />
+            <div class="order-product-info"><p class="order-product-name">${o.name}</p></div>
+            <div class="order-product-total">${o.total}</div>
+          </div>
+          <div class="order-card-actions">
+            <button class="btn btn-outline btn-sm ripple">Xem chi tiết</button>
+            ${o.status === 'delivered' ? '<button class="btn btn-sm ripple" style="background:var(--primary-dim);color:var(--primary-dark);font-weight:600">Mua lại</button>' : ''}
+          </div>
+        </div>
+      `).join('');
+        }
+
+        document.querySelectorAll('.order-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.order-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderOrders(tab.dataset.status);
+            });
+        });
+
+        renderOrders();
+
+        // Add Address Modal
+        const addrOverlay = document.getElementById('addr-modal-overlay');
+        document.getElementById('add-addr-btn').addEventListener('click', () => addrOverlay.classList.add('open'));
+        document.getElementById('addr-modal-close').addEventListener('click', () => addrOverlay.classList.remove('open'));
+        document.getElementById('addr-modal-cancel').addEventListener('click', () => addrOverlay.classList.remove('open'));
+        document.getElementById('addr-modal-save').addEventListener('click', () => { addrOverlay.classList.remove('open'); showToast('Đã lưu địa chỉ mới!'); });
+        addrOverlay.addEventListener('click', e => { if (e.target === addrOverlay) addrOverlay.classList.remove('open'); });
+
+        // Address delete
+        document.querySelectorAll('.addr-delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => { btn.closest('.addr-card').remove(); showToast('Đã xóa địa chỉ'); });
+        });
+
+        // Search redirect
+        document.getElementById('search-submit-btn').addEventListener('click', () => {
+            const q = document.getElementById('main-search').value.trim();
+            if (q) window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+        });
+        document.getElementById('main-search').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('search-submit-btn').click();
+        });
+    </script>
+</body>
+
+</html>

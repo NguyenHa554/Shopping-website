@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SONNE – Mua sắm thông minh, giá tốt mỗi ngày</title>
+  <meta name="description"
+    content="SONNE – Nền tảng thương mại điện tử hàng đầu Việt Nam. Hàng triệu sản phẩm chính hãng, giao nhanh, hoàn tiền dễ dàng." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="#" class="logo" aria-label="SONNE trang chủ">
+        <span class="logo-s">S</span>ONNE
+      </a>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <span class="material-icons-round search-icon">search</span>
+        <input type="search" id="main-search" class="search-input" placeholder="Tìm sản phẩm trên SONNE…"
+          autocomplete="off" />
+        <button class="search-btn" id="search-submit-btn" aria-label="Tìm kiếm">Tìm</button>
+      </div>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button class="icon-btn" id="notify-btn" aria-label="Thông báo">
+          <span class="material-icons-round">notifications_none</span>
+        </button>
+        <a href="cart.html" class="icon-btn cart-btn" id="cart-btn" aria-label="Giỏ hàng" style="text-decoration:none">
+          <span class="material-icons-round">shopping_bag</span>
+          <span class="badge" id="cart-badge">3</span>
+        </a>
+        <a href="profile.html" class="avatar-btn" id="avatar-btn" aria-label="Tài khoản">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5" alt="avatar"
+            class="avatar-img" />
+        </a>
+        <a href="seller.html" class="btn btn-outline seller-btn">Đăng ký bán hàng</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-text" data-aos>
+          <div class="hero-badge">🛍️ Hơn 50 triệu sản phẩm</div>
+          <h1 class="hero-headline">Mua sắm thông minh –<br />Giá tốt mỗi ngày</h1>
+          <p class="hero-sub">Hàng triệu sản phẩm chính hãng, giao nhanh, hoàn tiền dễ dàng.</p>
+          <div class="hero-ctas">
+            <a href="#categories" class="btn btn-primary ripple" id="explore-btn">
+              <span class="material-icons-round">bolt</span> Khám phá ngay
+            </a>
+            <a href="seller.html" class="btn btn-outline ripple" id="register-shop-btn">
+              Đăng ký gian hàng
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>50M+</strong><span>Sản phẩm</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <strong>2M+</strong><span>Người bán</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <strong>24h</strong><span>Giao nhanh</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" data-aos>
+          <div class="hero-illustration">
+            <div class="blob"></div>
+            <svg class="shopping-svg" viewBox="0 0 360 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <!-- Phone mockup -->
+              <rect x="80" y="40" width="200" height="340" rx="28" fill="white" stroke="#E0E0E0" stroke-width="2" />
+              <rect x="90" y="60" width="180" height="300" rx="16" fill="#F8FFFE" />
+              <!-- Screen content -->
+              <rect x="100" y="75" width="160" height="90" rx="10" fill="#7BFFD5" opacity="0.3" />
+              <rect x="110" y="85" width="80" height="10" rx="5" fill="#111" />
+              <rect x="110" y="102" width="55" height="7" rx="3" fill="#666" />
+              <rect x="110" y="116" width="40" height="22" rx="8" fill="#111" />
+              <!-- Product cards on phone -->
+              <rect x="100" y="178" width="70" height="80" rx="8" fill="#fff" stroke="#E8E8E8" stroke-width="1.5" />
+              <rect x="107" y="185" width="56" height="45" rx="5" fill="#7BFFD5" opacity="0.25" />
+              <rect x="107" y="236" width="40" height="6" rx="3" fill="#111" />
+              <rect x="107" y="247" width="30" height="6" rx="3" fill="#7BFFD5" />
+              <rect x="180" y="178" width="70" height="80" rx="8" fill="#fff" stroke="#E8E8E8" stroke-width="1.5" />
+              <rect x="187" y="185" width="56" height="45" rx="5" fill="#FFE0B2" opacity="0.5" />
+              <rect x="187" y="236" width="40" height="6" rx="3" fill="#111" />
+              <rect x="187" y="247" width="30" height="6" rx="3" fill="#FF7043" />
+              <!-- Home indicator -->
+              <rect x="155" y="350" width="50" height="4" rx="2" fill="#CCC" />
+              <!-- Floating badges -->
+              <g class="float-badge-1">
+                <rect x="220" y="90" width="90" height="38" rx="12" fill="white" filter="url(#shadow1)" />
+                <text x="234" y="107" font-size="10" fill="#666" font-family="Inter">🚀 Flash Sale</text>
+                <text x="234" y="120" font-size="11" font-weight="700" fill="#111" font-family="Inter">–40% hôm
+                  nay</text>
+              </g>
+              <g class="float-badge-2">
+                <rect x="8" y="220" width="88" height="38" rx="12" fill="white" filter="url(#shadow2)" />
+                <text x="22" y="237" font-size="10" fill="#666" font-family="Inter">✅ Giao nhanh</text>
+                <text x="22" y="250" font-size="11" font-weight="700" fill="#111" font-family="Inter">Trong 2 giờ</text>
+              </g>
+              <defs>
+                <filter id="shadow1" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0001" />
+                </filter>
+                <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0001" />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtle wave divider -->
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ DANH MỤC NỔI BẬT ═══════════════════════ -->
+    <section class="section categories-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Danh mục nổi bật</h2>
+          <a href="#" class="see-all-link">Xem tất cả <span class="material-icons-round">chevron_right</span></a>
+        </div>
+        <div class="categories-grid">
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">devices</span>
+            </div>
+            <span class="cat-label">Điện tử</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">checkroom</span>
+            </div>
+            <span class="cat-label">Thời trang</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">restaurant</span>
+            </div>
+            <span class="cat-label">Thực phẩm</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">menu_book</span>
+            </div>
+            <span class="cat-label">Sách</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">fitness_center</span>
+            </div>
+            <span class="cat-label">Thể thao</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">spa</span>
+            </div>
+            <span class="cat-label">Làm đẹp</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">chair</span>
+            </div>
+            <span class="cat-label">Nhà cửa</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">toys</span>
+            </div>
+            <span class="cat-label">Đồ chơi</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">two_wheeler</span>
+            </div>
+            <span class="cat-label">Xe cộ</span>
+          </a>
+          <a href="#" class="cat-card" data-aos>
+            <div class="cat-icon-wrap">
+              <span class="material-icons-round">category</span>
+            </div>
+            <span class="cat-label">Khác</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FLASH SALE ═══════════════════════ -->
+    <section class="section flash-section" id="flash-sale">
+      <div class="container">
+        <div class="flash-header">
+          <div class="flash-title-wrap">
+            <h2 class="flash-title">⚡ Flash Sale</h2>
+            <div class="countdown" id="countdown">
+              <div class="cd-block"><span id="cd-h">04</span><small>Giờ</small></div>
+              <span class="cd-sep">:</span>
+              <div class="cd-block"><span id="cd-m">27</span><small>Phút</small></div>
+              <span class="cd-sep">:</span>
+              <div class="cd-block"><span id="cd-s">51</span><small>Giây</small></div>
+            </div>
+          </div>
+          <a href="#" class="see-all-link">Xem tất cả <span class="material-icons-round">chevron_right</span></a>
+        </div>
+
+        <div class="flash-scroll">
+          <div class="flash-track" id="flash-track">
+            <!-- Cards injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ SẢN PHẨM ĐỀ XUẤT ═══════════════════════ -->
+    <section class="section recommended-section" id="recommended">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Gợi ý cho bạn</h2>
+          <a href="#" class="see-all-link">Xem tất cả <span class="material-icons-round">chevron_right</span></a>
+        </div>
+        <div class="products-grid" id="rec-grid">
+          <!-- Skeleton first -->
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+          <div class="product-card skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ GIAN HÀNG NỔI BẬT ═══════════════════════ -->
+    <section class="section shops-section" id="featured-shops">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Gian hàng nổi bật</h2>
+          <a href="#" class="see-all-link">Xem tất cả <span class="material-icons-round">chevron_right</span></a>
+        </div>
+        <div class="shops-grid" id="shops-grid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ TRUST BAND ═══════════════════════ -->
+    <section class="trust-band">
+      <div class="container trust-inner">
+        <div class="trust-item" data-aos>
+          <span class="material-icons-round trust-icon">local_shipping</span>
+          <div>
+            <strong>Giao nhanh 2H</strong>
+            <p>Trong nội thành các thành phố lớn</p>
+          </div>
+        </div>
+        <div class="trust-item" data-aos>
+          <span class="material-icons-round trust-icon">verified_user</span>
+          <div>
+            <strong>Hàng chính hãng</strong>
+            <p>Cam kết 100% chính hãng, hoàn tiền nếu phát hiện hàng giả</p>
+          </div>
+        </div>
+        <div class="trust-item" data-aos>
+          <span class="material-icons-round trust-icon">autorenew</span>
+          <div>
+            <strong>Đổi trả dễ dàng</strong>
+            <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
+          </div>
+        </div>
+        <div class="trust-item" data-aos>
+          <span class="material-icons-round trust-icon">headset_mic</span>
+          <div>
+            <strong>Hỗ trợ 24/7</strong>
+            <p>Đội ngũ chăm sóc khách hàng luôn sẵn sàng</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <span class="logo-s">S</span>ONNE
+        </div>
+        <p class="footer-desc">Nền tảng thương mại điện tử hàng đầu Việt Nam, mang đến trải nghiệm mua sắm thông minh và
+          tiện lợi.</p>
+        <div class="footer-apps">
+          <a href="#" class="app-badge" aria-label="Download on App Store">
+            <span class="material-icons-round">apple</span> App Store
+          </a>
+          <a href="#" class="app-badge" aria-label="Download on Google Play">
+            <span class="material-icons-round">android</span> Google Play
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Về SONNE</h4>
+        <ul class="footer-links">
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="#">Tin tức</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Nhà đầu tư</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Chính sách</h4>
+        <ul class="footer-links">
+          <li><a href="#">Điều khoản dịch vụ</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách vận chuyển</a></li>
+          <li><a href="#">Chính sách hoàn tiền</a></li>
+          <li><a href="#">Giải quyết tranh chấp</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Hỗ trợ</h4>
+        <ul class="footer-links">
+          <li><a href="#">Trung tâm trợ giúp</a></li>
+          <li><a href="#">Hướng dẫn mua hàng</a></li>
+          <li><a href="#">Hướng dẫn bán hàng</a></li>
+          <li><a href="#">Liên hệ chúng tôi</a></li>
+          <li><a href="#">Báo cáo vi phạm</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Kết nối</h4>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.74a8.27 8.27 0 004.83 1.56V6.86a4.85 4.85 0 01-1.06-.17z" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 00-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+            </svg>
+          </a>
+        </div>
+        <div class="footer-contact">
+          <p><span class="material-icons-round" style="font-size:16px;vertical-align:-3px">email</span> support@sonne.vn
+          </p>
+          <p><span class="material-icons-round" style="font-size:16px;vertical-align:-3px">phone</span> 1900 1234</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 SONNE. All rights reserved.</p>
+        <div class="payment-icons">
+          <span class="pay-chip">VISA</span>
+          <span class="pay-chip">MasterCard</span>
+          <span class="pay-chip">MoMo</span>
+          <span class="pay-chip">ZaloPay</span>
+          <span class="pay-chip">VNPay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ PRODUCT MODAL ═══════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="product-modal">
+      <button class="modal-close" id="modal-close" aria-label="Đóng">
+        <span class="material-icons-round">close</span>
+      </button>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img src="" alt="" id="modal-img" class="modal-img" />
+          <div class="modal-badge" id="modal-badge">-20%</div>
+        </div>
+        <div class="modal-info">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <div class="modal-prices">
+            <span class="price-old" id="modal-old-price"></span>
+            <span class="price-new" id="modal-new-price"></span>
+          </div>
+          <div class="modal-meta">
+            <div class="modal-rating" id="modal-rating"></div>
+            <span class="modal-sold" id="modal-sold"></span>
+          </div>
+          <div class="modal-progress-wrap">
+            <div class="modal-prog-label">
+              <span>Đã bán</span>
+              <span id="modal-sold-pct"></span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="modal-prog-fill"></div>
+            </div>
+          </div>
+          <p class="modal-desc" id="modal-desc"></p>
+          <div class="modal-actions">
+            <button class="btn btn-outline ripple" id="modal-wishlist">
+              <span class="material-icons-round">favorite_border</span> Yêu thích
+            </button>
+            <button class="btn btn-primary ripple" id="modal-add-cart">
+              <span class="material-icons-round">shopping_bag</span> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart notification toast -->
+  <div class="toast" id="toast">
+    <span class="material-icons-round">check_circle</span>
+    <span id="toast-msg">Đã thêm vào giỏ hàng!</span>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Search redirect
+    document.getElementById('search-submit-btn').addEventListener('click', () => {
+      const q = document.getElementById('main-search').value.trim();
+      if (q) window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+    });
+    document.getElementById('main-search').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('search-submit-btn').click();
+    });
+    // Cart link
+    document.getElementById('cart-btn').addEventListener('click', () => window.location.href = 'cart.html');
+    // Profile link
+    document.getElementById('avatar-btn').addEventListener('click', () => window.location.href = 'profile.html');
+  </script>
+</body>
+
+</html>

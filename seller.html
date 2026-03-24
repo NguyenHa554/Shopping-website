@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký bán hàng – SONNE</title>
+    <meta name="description" content="Trở thành người bán trên SONNE. Tiếp cận hàng triệu khách hàng trên toàn quốc." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Seller page overrides */
+        .seller-page {
+            min-height: 100vh;
+            background: var(--gray-50);
+            padding: var(--header-h) 0 0;
+        }
+
+        .seller-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #d6fff5 50%, #fff 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .seller-hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .seller-hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 560px;
+            margin: 0 auto 36px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 64px 0;
+        }
+
+        .benefit-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-icon .material-icons-round {
+            font-size: 32px;
+            color: var(--primary-dark);
+        }
+
+        .benefit-card h3 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-card p {
+            font-size: .88rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .register-form {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            max-width: 600px;
+            margin: 0 auto 80px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .form-sub {
+            color: var(--text-sub);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: .9rem;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: .95rem;
+            outline: none;
+            transition: var(--transition);
+            background: var(--gray-50);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-dark);
+            background: #fff;
+            box-shadow: 0 0 0 3px var(--primary-dim);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            font-size: 1rem;
+            justify-content: center;
+        }
+
+        .stats-bar {
+            background: var(--text);
+            padding: 40px 0;
+        }
+
+        .stats-inner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stats-inner .num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .stats-inner .lbl {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .7);
+            margin-top: 4px;
+        }
+
+        @media(max-width:768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .register-form {
+                padding: 28px 20px;
+            }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><span class="logo-s">S</span>ONNE</a>
+            <div style="flex:1"></div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-outline">← Trang chủ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="seller-page">
+        <!-- Hero -->
+        <section class="seller-hero">
+            <div class="container">
+                <h1>Bắt đầu kinh doanh<br />cùng <span style="color:var(--primary-dark)">SONNE</span></h1>
+                <p>Tiếp cận hàng triệu khách hàng trên toàn quốc. Đăng ký miễn phí, bắt đầu bán hàng ngay hôm nay.</p>
+                <a href="#register-form" class="btn btn-primary ripple">
+                    <span class="material-icons-round">store</span> Đăng ký ngay
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="container stats-inner">
+                <div>
+                    <div class="num">50M+</div>
+                    <div class="lbl">Khách hàng hoạt động</div>
+                </div>
+                <div>
+                    <div class="num">2M+</div>
+                    <div class="lbl">Gian hàng đã đăng ký</div>
+                </div>
+                <div>
+                    <div class="num">63</div>
+                    <div class="lbl">Tỉnh thành giao hàng</div>
+                </div>
+                <div>
+                    <div class="num">0đ</div>
+                    <div class="lbl">Chi phí đăng ký</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="container">
+            <div class="section-header" style="padding-top:48px">
+                <h2 class="section-title">Tại sao chọn SONNE?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">trending_up</span></div>
+                    <h3>Doanh thu không giới hạn</h3>
+                    <p>Tiếp cận hàng triệu khách hàng mỗi ngày. Không giới hạn số lượng sản phẩm đăng bán.</p>
+                </div>
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">support_agent</span></div>
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ người bán chuyên nghiệp, sẵn sàng giải đáp mọi thắc mắc của bạn.</p>
+                </div>
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">local_shipping</span></div>
+                    <h3>Logistics tích hợp</h3>
+                    <p>Hệ thống vận chuyển đối tác đa dạng, tối ưu chi phí ship và tracking đơn hàng real-time.</p>
+                </div>
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">bar_chart</span></div>
+                    <h3>Dashboard thông minh</h3>
+                    <p>Theo dõi doanh thu, phân tích hành vi mua hàng và tối ưu gian hàng với AI insights.</p>
+                </div>
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">campaign</span></div>
+                    <h3>Marketing mạnh mẽ</h3>
+                    <p>Tham gia Flash Sale, voucher, quảng cáo targeted để tăng visibility cho gian hàng.</p>
+                </div>
+                <div class="benefit-card" data-aos>
+                    <div class="benefit-icon"><span class="material-icons-round">payments</span></div>
+                    <h3>Thanh toán an toàn</h3>
+                    <p>Tiền về tài khoản nhanh chóng, hỗ trợ đa phương thức thanh toán và escrow bảo đảm.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="container" id="register-form">
+            <div class="register-form">
+                <h2 class="form-title">Tạo gian hàng ngay</h2>
+                <p class="form-sub">Điền thông tin bên dưới để bắt đầu. Miễn phí 100%!</p>
+                <form id="seller-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shop-name">Tên gian hàng *</label>
+                            <input type="text" id="shop-name" placeholder="VD: TechStore Official" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="shop-cat">Danh mục chính *</label>
+                            <select id="shop-cat" required>
+                                <option value="">Chọn danh mục</option>
+                                <option>Điện tử</option>
+                                <option>Thời trang</option>
+                                <option>Thực phẩm</option>
+                                <option>Sách</option>
+                                <option>Thể thao</option>
+                                <option>Làm đẹp</option>
+                                <option>Nhà cửa</option>
+                                <option>Đồ chơi</option>
+                                <option>Xe cộ</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="owner-name">Họ và tên *</label>
+                            <input type="text" id="owner-name" placeholder="Nguyễn Văn A" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại *</label>
+                            <input type="tel" id="phone" placeholder="0912 345 678" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" placeholder="email@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="shop-desc">Mô tả gian hàng</label>
+                        <textarea id="shop-desc" placeholder="Giới thiệu ngắn về gian hàng của bạn…"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary ripple form-submit" id="submit-seller">
+                        <span class="material-icons-round">rocket_launch</span> Đăng ký ngay – Miễn phí!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 SONNE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <span class="material-icons-round">check_circle</span>
+        <span id="toast-msg">Đã gửi yêu cầu!</span>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 10);
+        }, { passive: true });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animated'); observer.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('[data-aos]').forEach((el, i) => {
+            el.dataset.aosDelay = i * 80;
+            observer.observe(el);
+        });
+
+        document.getElementById('seller-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const name = document.getElementById('shop-name').value.trim();
+            if (!name) { document.getElementById('shop-name').focus(); return; }
+            const btn = document.getElementById('submit-seller');
+            btn.innerHTML = '<span class="material-icons-round">hourglass_empty</span> Đang xử lý…';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-icons-round">check_circle</span> Đăng ký thành công!';
+                btn.style.background = 'var(--primary-dark)';
+                const toast = document.getElementById('toast');
+                document.getElementById('toast-msg').textContent = 'Chào mừng ' + name + ' đến với SONNE! 🎉';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 4000);
+            }, 1800);
+        });
+    </script>
+</body>
+
+</html>

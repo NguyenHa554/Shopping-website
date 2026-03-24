@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tai nghe Bluetooth Sony WH-1000XM5 Chống ồn chủ động – SONNE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray">
+
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><span class="logo-s">S</span>ONNE</a>
+            <div class="search-wrap">
+                <span class="material-icons-round search-icon">search</span>
+                <input type="search" id="main-search" class="search-input" placeholder="Tìm sản phẩm trên SONNE…"
+                    autocomplete="off" />
+                <button class="search-btn" id="search-submit-btn">Tìm</button>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="notify-btn"><span
+                        class="material-icons-round">notifications_none</span></button>
+                <a href="cart.html" class="icon-btn cart-btn" id="cart-btn" style="text-decoration:none">
+                    <span class="material-icons-round">shopping_bag</span>
+                    <span class="badge" id="cart-badge">3</span>
+                </a>
+                <a href="profile.html" class="avatar-btn" id="avatar-btn">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5" alt="avatar"
+                        class="avatar-img" />
+                </a>
+                <a href="seller.html" class="btn btn-outline seller-btn">Đăng ký bán hàng</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <div class="container pdp-layout">
+
+            <!-- BREADCRUMB -->
+            <nav class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <span class="material-icons-round">chevron_right</span>
+                <a href="#">Điện tử</a>
+                <span class="material-icons-round">chevron_right</span>
+                <a href="#">Âm thanh</a>
+                <span class="material-icons-round">chevron_right</span>
+                <span>Tai nghe Sony WH-1000XM5</span>
+            </nav>
+
+            <!-- MAIN PRODUCT BLOCK -->
+            <section class="pdp-main-card">
+                <!-- Left: Gallery -->
+                <div class="pdp-gallery">
+                    <div class="pdp-main-img-wrap">
+                        <img src="https://picsum.photos/seed/sony1/800/800" alt="Sony WH-1000XM5" id="pdp-main-img"
+                            class="pdp-main-img" />
+                    </div>
+                    <div class="pdp-thumbnails" id="pdp-thumbnails">
+                        <button class="thumb-btn active"><img src="https://picsum.photos/seed/sony1/800/800"
+                                alt="Thumb" /></button>
+                        <button class="thumb-btn"><img src="https://picsum.photos/seed/sony_b/800/800"
+                                alt="Thumb" /></button>
+                        <button class="thumb-btn"><img src="https://picsum.photos/seed/sony_c/800/800"
+                                alt="Thumb" /></button>
+                        <button class="thumb-btn"><img src="https://picsum.photos/seed/sony_d/800/800"
+                                alt="Thumb" /></button>
+                        <button class="thumb-btn"><img src="https://picsum.photos/seed/sony_e/800/800"
+                                alt="Thumb" /></button>
+                    </div>
+                </div>
+
+                <!-- Right: Info & Actions -->
+                <div class="pdp-info">
+                    <div class="pdp-badges">
+                        <span class="badge-mall">SONNE Mall</span>
+                        <span class="badge-ship">Freeship</span>
+                    </div>
+                    <h1 class="pdp-title">Tai nghe Bluetooth Sony WH-1000XM5 Chống ồn chủ động cao cấp</h1>
+
+                    <div class="pdp-meta">
+                        <div class="pdp-meta-stars">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-num">4.9</span>
+                        </div>
+                        <div class="meta-div"></div>
+                        <a href="#reviews" class="meta-link">1.2k Đánh giá</a>
+                        <div class="meta-div"></div>
+                        <span class="meta-sold">Đã bán 5.4k</span>
+                    </div>
+
+                    <div class="pdp-price-box">
+                        <div class="pdp-price-new">5.990.000 ₫</div>
+                        <div class="pdp-price-old">8.990.000 ₫</div>
+                        <div class="pdp-disc-badge">-33%</div>
+                    </div>
+
+                    <!-- Variants -->
+                    <div class="pdp-variants">
+                        <div class="variant-group">
+                            <label>Màu sắc:</label>
+                            <div class="variant-options" id="color-options">
+                                <button class="var-btn active">Đen (Midnight Black)</button>
+                                <button class="var-btn">Trắng (Platinum Silver)</button>
+                                <button class="var-btn">Xanh dương (Midnight Blue)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="pdp-quantity-wrap">
+                        <label>Số lượng:</label>
+                        <div class="qty-control">
+                            <button class="qty-btn" id="qty-minus"><span
+                                    class="material-icons-round">remove</span></button>
+                            <input type="number" id="qty-input" value="1" min="1" max="99" class="qty-input" />
+                            <button class="qty-btn" id="qty-plus"><span class="material-icons-round">add</span></button>
+                        </div>
+                        <span class="qty-avail">Kho: 247 sản phẩm</span>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="pdp-action-btns">
+                        <button class="btn btn-outline ripple pdp-btn-cart" id="pdp-add-cart">
+                            <span class="material-icons-round">add_shopping_cart</span> Thêm vào giỏ hàng
+                        </button>
+                        <button class="btn btn-primary ripple pdp-btn-buy" id="pdp-buy-now">
+                            Mua ngay
+                        </button>
+                    </div>
+
+                    <!-- Policies -->
+                    <div class="pdp-policies">
+                        <div class="policy-item">
+                            <span class="material-icons-round text-primary">verified_user</span>
+                            <span>Hàng chính hãng 100%</span>
+                        </div>
+                        <div class="policy-item">
+                            <span class="material-icons-round text-primary">local_shipping</span>
+                            <span>Giao hàng nhanh 2H nội thành</span>
+                        </div>
+                        <div class="policy-item">
+                            <span class="material-icons-round text-primary">autorenew</span>
+                            <span>Đổi trả miễn phí 15 ngày</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SHOP INFO CARD -->
+            <section class="shop-info-card" data-aos>
+                <div class="shop-avatar-large">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=sony&backgroundColor=7BFFD5"
+                        alt="Sony Official Store" />
+                </div>
+                <div class="shop-details">
+                    <h3 class="shop-name">Sony Official Store <span
+                            class="material-icons-round verified-icon">verified</span></h3>
+                    <div class="shop-stats">
+                        <span><strong>4.9</strong> Đánh giá</span>
+                        <span><strong>1.2k</strong> Sản phẩm</span>
+                        <span><strong>98%</strong> Tỉ lệ phản hồi</span>
+                    </div>
+                </div>
+                <div class="shop-actions">
+                    <button class="btn btn-outline ripple"><span class="material-icons-round">chat</span> Chat
+                        ngay</button>
+                    <a href="#" class="btn btn-primary ripple"><span class="material-icons-round">storefront</span> Xem
+                        shop</a>
+                </div>
+            </section>
+
+            <div class="pdp-bottom-layout">
+                <!-- LEFT CONTENT -->
+                <div class="pdp-content-area">
+                    <!-- TABS ROW -->
+                    <div class="pdp-tabs" id="pdp-tabs">
+                        <button class="tab-btn active" data-tab="tab-desc">Mô tả sản phẩm</button>
+                        <button class="tab-btn" data-tab="tab-specs">Thông số kỹ thuật</button>
+                        <button class="tab-btn" data-tab="tab-reviews" id="reviews">Đánh giá khách hàng</button>
+                    </div>
+
+                    <!-- TAB CONTENT: DESC -->
+                    <div class="tab-content active" id="tab-desc">
+                        <div class="desc-content" id="desc-content">
+                            <h4>Chống ồn đỉnh cao, trải nghiệm âm thanh tuyệt đỉnh</h4>
+                            <p>Tai nghe Sony WH-1000XM5 mang đến công nghệ chống ồn chủ động tốt nhất từ trước đến nay
+                                với 2 vi xử lý kiểm soát 8 micro, tối ưu hóa chống ồn tự động dựa trên môi trường sống
+                                xung quanh bạn.</p>
+
+                            <h4>Đặc điểm nổi bật:</h4>
+                            <ul>
+                                <li><strong>Chống ồn hiệu quả vượt trội:</strong> Công nghệ Auto NC Optimizer tự động
+                                    điều chỉnh hiệu suất chống ồn dựa trên điều kiện và môi trường của bạn.</li>
+                                <li><strong>Âm thanh chất lượng cao:</strong> Củ loa 30mm thiết kế đặc biệt mang đến âm
+                                    thanh sống động, tự nhiên cùng công nghệ truyền dẫn âm thanh không dây LDAC.</li>
+                                <li><strong>Đàm thoại trong trẻo:</strong> Thuật toán giảm tiếng ồn AI và 4 micro dạng
+                                    chùm định hướng giọng nói rõ ràng.</li>
+                                <li><strong>Thiết kế siêu tinh tế:</strong> Trọng lượng nhẹ, da mềm vô cùng thoải mái
+                                    khi đeo cả ngày dài.</li>
+                                <li><strong>Thời lượng pin 30 giờ:</strong> Sạc nhanh 3 phút được 3 giờ phát nhạc. Tích
+                                    hợp sạc Type-C.</li>
+                            </ul>
+                            <img src="https://picsum.photos/seed/sony-desc/800/400" alt="Sony XM5 banner"
+                                style="width:100%; border-radius:8px; margin-top:20px;" />
+                        </div>
+                        <div class="desc-overlay" id="desc-overlay">
+                            <button class="btn btn-outline" id="read-more-btn">Xem thêm nội dung</button>
+                        </div>
+                    </div>
+
+                    <!-- TAB CONTENT: SPECS -->
+                    <div class="tab-content" id="tab-specs">
+                        <table class="specs-table">
+                            <tbody>
+                                <tr>
+                                    <td>Thương hiệu</td>
+                                    <td>Sony</td>
+                                </tr>
+                                <tr>
+                                    <td>Bảo hành</td>
+                                    <td>12 tháng chính hãng</td>
+                                </tr>
+                                <tr>
+                                    <td>Loại tai nghe</td>
+                                    <td>Over-ear (Chu chụp tai)</td>
+                                </tr>
+                                <tr>
+                                    <td>Kết nối</td>
+                                    <td>Bluetooth 5.2 / Giắc 3.5mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Chống ồn</td>
+                                    <td>ANC tự động (Auto NC Optimizer)</td>
+                                </tr>
+                                <tr>
+                                    <td>Thời lượng pin</td>
+                                    <td>Khoảng 30 giờ (bật ANC) / Khoảng 40 giờ (tắt ANC)</td>
+                                </tr>
+                                <tr>
+                                    <td>Trọng lượng</td>
+                                    <td>Khoảng 250 g</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- TAB CONTENT: REVIEWS -->
+                    <div class="tab-content" id="tab-reviews">
+                        <div class="review-overview">
+                            <div class="rv-score">
+                                <div class="score-num">4.9</div>
+                                <div class="score-stars">★★★★★</div>
+                                <div class="score-total">1.240 đánh giá</div>
+                            </div>
+                            <div class="rv-bars">
+                                <div class="rv-bar-row"><span>5 Sao</span>
+                                    <div class="rv-bar">
+                                        <div class="fill" style="width:92%"></div>
+                                    </div><span>1.140</span>
+                                </div>
+                                <div class="rv-bar-row"><span>4 Sao</span>
+                                    <div class="rv-bar">
+                                        <div class="fill" style="width:6%"></div>
+                                    </div><span>80</span>
+                                </div>
+                                <div class="rv-bar-row"><span>3 Sao</span>
+                                    <div class="rv-bar">
+                                        <div class="fill" style="width:1%"></div>
+                                    </div><span>12</span>
+                                </div>
+                                <div class="rv-bar-row"><span>2 Sao</span>
+                                    <div class="rv-bar">
+                                        <div class="fill" style="width:0%"></div>
+                                    </div><span>3</span>
+                                </div>
+                                <div class="rv-bar-row"><span>1 Sao</span>
+                                    <div class="rv-bar">
+                                        <div class="fill" style="width:1%"></div>
+                                    </div><span>5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-filters">
+                            <button class="rv-filter active">Tất cả</button>
+                            <button class="rv-filter">5 Sao (1.140)</button>
+                            <button class="rv-filter">Có hình ảnh/video (452)</button>
+                        </div>
+
+                        <div class="review-list">
+                            <!-- Review Item -->
+                            <div class="review-card">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user1" class="rev-avatar"
+                                    alt="User" />
+                                <div class="rev-main">
+                                    <div class="rev-user">Nguyễn Viết Nam</div>
+                                    <div class="rev-stars">★★★★★</div>
+                                    <div class="rev-meta">Phân loại: Đen | Ngày: 22/02/2026</div>
+                                    <div class="rev-text">Hàng chính hãng, nguyên seal. Chống ồn đỉnh thực sự, đeo cả
+                                        ngày ở văn phòng không bị nhức tai như con đời cũ. Shop đóng gói siêu cẩn thận,
+                                        giao nhanh trong vòng 2 tiếng. Quá tuyệt vời!</div>
+                                    <img src="https://picsum.photos/seed/sony-rev/200/200" alt="Review img"
+                                        class="rev-img" />
+                                </div>
+                            </div>
+                            <div class="review-card">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=user2" class="rev-avatar"
+                                    alt="User" />
+                                <div class="rev-main">
+                                    <div class="rev-user">Trần Thu Trang</div>
+                                    <div class="rev-stars">★★★★★</div>
+                                    <div class="rev-meta">Phân loại: Trắng | Ngày: 18/02/2026</div>
+                                    <div class="rev-text">Màu trắng đẹp xỉu, sang trọng. Âm bass sâu, nghe nhạc Pop/R&B
+                                        cực đã. Đáng đồng tiền bát gạo. Có mã giảm giá nên mua được giá hời.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline" style="width:100%; margin-top:20px;">Xem thêm đánh giá</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RELATED PRODUCTS -->
+            <section class="section recommended-section" style="padding:48px 0;">
+                <div class="section-header">
+                    <h2 class="section-title">Gợi ý cho bạn</h2>
+                    <a href="#" class="see-all-link">Xem tất cả <span
+                            class="material-icons-round">chevron_right</span></a>
+                </div>
+                <div class="products-grid" id="rec-grid">
+                    <!-- Injected by app.js -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col brand-col">
+                <div class="footer-logo"><span class="logo-s">S</span>ONNE</div>
+                <p class="footer-desc">Nền tảng thương mại điện tử hàng đầu Việt Nam, mang đến trải nghiệm mua sắm thông
+                    minh và tiện lợi.</p>
+                <div class="footer-apps">
+                    <a href="#" class="app-badge"><span class="material-icons-round">apple</span> App Store</a>
+                    <a href="#" class="app-badge"><span class="material-icons-round">android</span> Google Play</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Về SONNE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Chính sách</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Điều khoản</a></li>
+                    <li><a href="#">Bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Hỗ trợ</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Trợ giúp</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Kết nối</h4>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><span class="material-icons-round">facebook</span></a>
+                </div>
+                <div class="footer-contact">
+                    <p>support@sonne.vn</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 SONNE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="material-icons-round">check_circle</span>
+        <span id="toast-msg">Đã thêm vào giỏ hàng!</span>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Search redirect
+        document.getElementById('search-submit-btn').addEventListener('click', () => {
+            const q = document.getElementById('main-search').value.trim();
+            if (q) window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+        });
+        document.getElementById('main-search').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('search-submit-btn').click();
+        });
+    </script>
+</body>
+
+</html>

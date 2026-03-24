@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Tìm kiếm – SONNE</title>
+    <meta name="description" content="Kết quả tìm kiếm sản phẩm trên SONNE." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-gray">
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="SONNE trang chủ"><span class="logo-s">S</span>ONNE</a>
+            <div class="search-wrap">
+                <span class="material-icons-round search-icon">search</span>
+                <input type="search" id="main-search" class="search-input" placeholder="Tìm sản phẩm trên SONNE…"
+                    autocomplete="off" />
+                <button class="search-btn" id="search-submit-btn">Tìm</button>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="notify-btn" aria-label="Thông báo"><span
+                        class="material-icons-round">notifications_none</span></button>
+                <a href="cart.html" class="icon-btn cart-btn" aria-label="Giỏ hàng" style="text-decoration:none">
+                    <span class="material-icons-round">shopping_bag</span>
+                    <span class="badge" id="cart-badge">3</span>
+                </a>
+                <a href="profile.html" class="avatar-btn" aria-label="Tài khoản">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sonne&backgroundColor=7BFFD5" alt="avatar"
+                        class="avatar-img" />
+                </a>
+                <a href="seller.html" class="btn btn-outline seller-btn">Đăng ký bán hàng</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="search-page">
+        <div class="container">
+
+            <!-- TOP INFO BAR -->
+            <div class="search-info-bar">
+                <div class="search-result-text">
+                    Kết quả tìm kiếm cho: <strong id="search-keyword-display">"tai nghe bluetooth"</strong>
+                    <span class="result-count" id="result-count">1.245 kết quả</span>
+                </div>
+                <div class="sort-bar">
+                    <span class="sort-label">Sắp xếp:</span>
+                    <button class="sort-btn active" data-sort="relevance">Phù hợp nhất</button>
+                    <button class="sort-btn" data-sort="price_asc">Giá tăng dần</button>
+                    <button class="sort-btn" data-sort="price_desc">Giá giảm dần</button>
+                    <button class="sort-btn" data-sort="bestseller">Bán chạy</button>
+                </div>
+            </div>
+
+            <!-- MAIN LAYOUT -->
+            <div class="search-layout">
+                <!-- FILTER SIDEBAR -->
+                <aside class="filter-sidebar" id="filter-sidebar">
+                    <div class="filter-card">
+                        <div class="filter-header">
+                            <h3><span class="material-icons-round">tune</span> Bộ lọc tìm kiếm</h3>
+                            <button class="filter-clear-btn" id="filter-clear-btn">Xóa lọc</button>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="filter-group">
+                            <div class="filter-group-title">Danh mục</div>
+                            <label class="filter-check"><input type="checkbox" /> Tai nghe nhét tai</label>
+                            <label class="filter-check"><input type="checkbox" checked /> Tai nghe chụp tai</label>
+                            <label class="filter-check"><input type="checkbox" /> True Wireless (TWS)</label>
+                            <label class="filter-check"><input type="checkbox" /> Tai nghe gaming</label>
+                            <label class="filter-check"><input type="checkbox" /> Tai nghe thể thao</label>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="filter-group">
+                            <div class="filter-group-title">Khoảng giá (₫)</div>
+                            <div class="price-range-inputs">
+                                <input type="number" class="price-input" placeholder="Từ" id="price-min" />
+                                <span class="price-range-sep">–</span>
+                                <input type="number" class="price-input" placeholder="Đến" id="price-max" />
+                            </div>
+                            <button class="btn btn-outline btn-sm" style="width:100%;margin-top:10px"
+                                id="price-apply-btn">Áp dụng</button>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="filter-group">
+                            <div class="filter-group-title">Đánh giá</div>
+                            <label class="filter-check"><input type="radio" name="rating" /> ★★★★★ (5 sao)</label>
+                            <label class="filter-check"><input type="radio" name="rating" /> ★★★★☆ trở lên</label>
+                            <label class="filter-check"><input type="radio" name="rating" /> ★★★☆☆ trở lên</label>
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="filter-group">
+                            <div class="filter-group-title">Thương hiệu</div>
+                            <label class="filter-check"><input type="checkbox" checked /> Sony</label>
+                            <label class="filter-check"><input type="checkbox" /> Apple</label>
+                            <label class="filter-check"><input type="checkbox" /> JBL</label>
+                            <label class="filter-check"><input type="checkbox" /> Samsung</label>
+                            <label class="filter-check"><input type="checkbox" /> Bose</label>
+                        </div>
+
+                        <!-- Shipping -->
+                        <div class="filter-group">
+                            <div class="filter-group-title">Vận chuyển</div>
+                            <label class="filter-check"><input type="checkbox" /> <span class="text-success">🚀
+                                    Freeship</span></label>
+                            <label class="filter-check"><input type="checkbox" /> ⚡ Giao nhanh 2H</label>
+                        </div>
+
+                        <button class="btn btn-primary ripple" style="width:100%;justify-content:center"
+                            id="filter-apply-btn">
+                            <span class="material-icons-round">check</span> Áp dụng bộ lọc
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- PRODUCT GRID -->
+                <div class="search-results-col">
+                    <!-- Products Grid -->
+                    <div class="products-grid search-grid" id="search-grid">
+                        <!-- Product cards injected by JS -->
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="pagination" id="pagination">
+                        <button class="page-btn" id="prev-page" disabled>
+                            <span class="material-icons-round">chevron_left</span>
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span class="page-ellipsis">…</span>
+                        <button class="page-btn">10</button>
+                        <button class="page-btn" id="next-page">
+                            <span class="material-icons-round">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div class="search-empty" id="search-empty" style="display:none">
+                        <div class="empty-illustration">
+                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" width="140">
+                                <circle cx="85" cy="85" r="55" stroke="#E0E0E0" stroke-width="8" fill="#F5F5F5" />
+                                <line x1="128" y1="128" x2="165" y2="165" stroke="#BDBDBD" stroke-width="10"
+                                    stroke-linecap="round" />
+                                <text x="62" y="92" font-size="28" fill="#BDBDBD">?</text>
+                            </svg>
+                        </div>
+                        <h2 class="empty-title">Không tìm thấy sản phẩm phù hợp</h2>
+                        <p class="empty-sub">Hãy thử từ khóa khác, hoặc kiểm tra lại chính tả</p>
+                        <a href="index.html" class="btn btn-primary ripple">Khám phá sản phẩm khác</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile filter button -->
+    <button class="mobile-filter-btn" id="mobile-filter-btn">
+        <span class="material-icons-round">tune</span> Bộ lọc & Sắp xếp
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col brand-col">
+                <div class="footer-logo"><span class="logo-s">S</span>ONNE</div>
+                <p class="footer-desc">Nền tảng thương mại điện tử hàng đầu Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Về SONNE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Chính sách</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Điều khoản</a></li>
+                    <li><a href="#">Bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Hỗ trợ</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Trợ giúp</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Kết nối</h4>
+                <div class="footer-contact">
+                    <p>support@sonne.vn</p>
+                    <p>1900 1234</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 SONNE. All rights reserved.</p>
+                <div class="payment-icons"><span class="pay-chip">VISA</span><span class="pay-chip">MoMo</span><span
+                        class="pay-chip">ZaloPay</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"><span class="material-icons-round">check_circle</span><span id="toast-msg">Đã áp dụng
+            bộ lọc!</span></div>
+
+    <script src="app.js"></script>
+    <script>
+        // Read URL param
+        const urlParams = new URLSearchParams(window.location.search);
+        const q = urlParams.get('q') || 'tai nghe bluetooth';
+        document.getElementById('main-search').value = q;
+        document.getElementById('search-keyword-display').textContent = `"${q}"`;
+        document.title = `${q} – SONNE`;
+
+        // Search submit
+        document.getElementById('search-submit-btn').addEventListener('click', () => {
+            const kw = document.getElementById('main-search').value.trim();
+            if (kw) window.location.href = `search.html?q=${encodeURIComponent(kw)}`;
+        });
+        document.getElementById('main-search').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('search-submit-btn').click();
+        });
+
+        // Sort buttons
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderSearchGrid(); // re-render in sorted order
+            });
+        });
+
+        // Filter apply
+        document.getElementById('filter-apply-btn').addEventListener('click', () => {
+            // Show skeleton, then re-render
+            showSkeletonGrid();
+            setTimeout(() => { renderSearchGrid(); showToast('Đã áp dụng bộ lọc!'); }, 600);
+        });
+
+        // Filter clear
+        document.getElementById('filter-clear-btn').addEventListener('click', () => {
+            document.querySelectorAll('#filter-sidebar input[type="checkbox"]').forEach(c => c.checked = false);
+            document.querySelectorAll('#filter-sidebar input[type="radio"]').forEach(r => r.checked = false);
+            document.getElementById('price-min').value = '';
+            document.getElementById('price-max').value = '';
+            renderSearchGrid();
+            showToast('Đã xóa bộ lọc');
+        });
+
+        // Products data (reuse from app.js pattern)
+        const SEARCH_PRODUCTS = [
+            { id: 1, name: 'Tai nghe Bluetooth Sony WH-1000XM5 Chống ồn', img: 'https://picsum.photos/seed/sony1/400/400', price: 5990000, oldPrice: 8990000, disc: 33, rating: 4.9, sold: '5.4k' },
+            { id: 2, name: 'Tai nghe Apple AirPods Pro 2nd Gen (USB-C)', img: 'https://picsum.photos/seed/apple2/400/400', price: 5990000, oldPrice: 6999000, disc: 14, rating: 4.8, sold: '12k' },
+            { id: 3, name: 'Tai nghe JBL Tune 520BT Wireless On-ear', img: 'https://picsum.photos/seed/jbl3/400/400', price: 890000, oldPrice: 1290000, disc: 31, rating: 4.7, sold: '8.2k' },
+            { id: 4, name: 'Tai nghe Samsung Galaxy Buds2 Pro True Wireless', img: 'https://picsum.photos/seed/sam4/400/400', price: 2990000, oldPrice: 4990000, disc: 40, rating: 4.6, sold: '3.1k' },
+            { id: 5, name: 'Tai nghe Bose QuietComfort 45 Wireless ANC', img: 'https://picsum.photos/seed/bose5/400/400', price: 6990000, oldPrice: 8990000, disc: 22, rating: 4.8, sold: '1.9k' },
+            { id: 6, name: 'Tai nghe Sony WF-1000XM5 True Wireless Flagship', img: 'https://picsum.photos/seed/sony6/400/400', price: 5490000, oldPrice: 7490000, disc: 27, rating: 4.9, sold: '2.4k' },
+            { id: 7, name: 'Tai nghe Anker Soundcore Q45 Active ANC Foldable', img: 'https://picsum.photos/seed/ank7/400/400', price: 1190000, oldPrice: 1790000, disc: 34, rating: 4.5, sold: '6.5k' },
+            { id: 8, name: 'Tai nghe Jabra Evolve2 65 MS Business Stereo', img: 'https://picsum.photos/seed/jab8/400/400', price: 5390000, oldPrice: 6990000, disc: 23, rating: 4.7, sold: '876' },
+            { id: 9, name: 'Tai nghe Sennheiser HD 660S2 Hi-Fi Open-Back', img: 'https://picsum.photos/seed/sen9/400/400', price: 12990000, oldPrice: 14990000, disc: 13, rating: 4.9, sold: '234' },
+            { id: 10, name: 'Tai nghe Beats Studio Pro Wireless With Personalized ANC', img: 'https://picsum.photos/seed/bea10/400/400', price: 6490000, oldPrice: 8490000, disc: 24, rating: 4.6, sold: '1.8k' },
+        ];
+
+        function showSkeletonGrid() {
+            const grid = document.getElementById('search-grid');
+            grid.innerHTML = Array(10).fill('<div class="product-card skeleton-card"></div>').join('');
+        }
+
+        function renderSearchGrid() {
+            const grid = document.getElementById('search-grid');
+            grid.innerHTML = SEARCH_PRODUCTS.map(p => `
+        <div class="product-card" data-aos>
+          <a href="product.html">
+            <div class="prod-img-wrap">
+              <img src="${p.img}" alt="${p.name}" class="prod-img" loading="lazy" />
+              <span class="disc-badge">-${p.disc}%</span>
+            </div>
+          </a>
+          <div class="prod-info">
+            <a href="product.html" class="prod-name">${p.name}</a>
+            <div class="prod-rating"><span>★★★★★</span><span> ${p.rating} (${p.sold})</span></div>
+            <div class="price-row">
+              <span class="price-new">${p.price.toLocaleString('vi')} ₫</span>
+              <span class="price-old">${p.oldPrice.toLocaleString('vi')} ₫</span>
+            </div>
+            <a href="product.html" class="flash-btn" style="display:block;text-align:center;margin-top:8px">Xem chi tiết</a>
+          </div>
+        </div>
+      `).join('');
+            // Trigger AOS
+            setTimeout(() => {
+                document.querySelectorAll('#search-grid [data-aos]').forEach((el, i) => {
+                    el.style.opacity = '0'; el.style.transform = 'translateY(16px)';
+                    setTimeout(() => { el.style.transition = 'opacity .4s, transform .4s'; el.style.opacity = '1'; el.style.transform = 'none'; }, i * 40);
+                });
+            }, 50);
+        }
+
+        // Pagination
+        document.querySelectorAll('.page-btn:not(#prev-page):not(#next-page)').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                showSkeletonGrid();
+                setTimeout(renderSearchGrid, 500);
+            });
+        });
+
+        // Mobile filter toggle
+        document.getElementById('mobile-filter-btn').addEventListener('click', () => {
+            document.getElementById('filter-sidebar').classList.toggle('open');
+        });
+
+        // Init
+        showSkeletonGrid();
+        setTimeout(renderSearchGrid, 600);
+    </script>
+</body>
+
+</html>
