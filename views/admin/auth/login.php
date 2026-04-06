@@ -1,65 +1,76 @@
 <?php
 // Admin Login view — standalone page (no sidebar)
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Đăng nhập – SONNE Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/admin/admin.css">
-    <style>
-        .admin-login-page { min-height:100vh; display:flex; align-items:center; justify-content:center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-        .admin-login-card { background:#fff; border-radius:16px; padding:40px; width:100%; max-width:420px;
-            box-shadow: 0 20px 60px rgba(0,0,0,.3); }
-        .login-brand { text-align:center; margin-bottom:32px; }
-        .login-brand .logo { font-size:2rem; font-weight:800; letter-spacing:3px;
-            background: linear-gradient(135deg,#6c63ff,#a855f7); -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent; }
-        .login-brand p { color:#888; font-size:.9rem; margin:6px 0 0; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/typography.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/default-css.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/styles.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/css/responsive.css">
 </head>
-<body class="admin-body">
-<div class="admin-login-page">
-    <div class="admin-login-card">
-        <div class="login-brand">
-            <div class="logo">SONNE</div>
-            <p>Admin Panel</p>
-        </div>
+<body>
+<!-- preloader -->
+<div id="preloader"><div class="loader"></div></div>
 
-        <?php $flash = flash(); if ($flash): ?>
-        <div class="flash-banner flash-<?= e($flash['type']) ?>">
-            <?= e($flash['message']) ?>
-            <button onclick="this.parentElement.remove()"><i class="fa fa-times"></i></button>
-        </div>
-        <?php endif; ?>
-
-        <form action="<?= BASE_URL ?>/admin/login" method="POST">
-            <?= csrfField() ?>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control"
-                       placeholder="admin@sonne.vn" required autocomplete="email">
+<!-- login area start -->
+<div class="login-area">
+    <div class="container">
+        <div class="login-box ptb--100">
+            <?php $flash = flash(); if ($flash): ?>
+            <div class="alert alert-<?= $flash['type'] === 'success' ? 'success' : 'danger' ?> mb-3" role="alert">
+                <?= e($flash['message']) ?>
             </div>
-            <div class="form-group">
-                <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" class="form-control"
-                       placeholder="••••••••" required>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">
-                <i class="fa fa-sign-in-alt"></i> Đăng nhập
-            </button>
-        </form>
+            <?php endif; ?>
 
-        <div style="text-align:center;margin-top:20px;">
-            <a href="<?= BASE_URL ?>/" style="color:#888;font-size:.85rem;text-decoration:none;">
-                <i class="fa fa-arrow-left"></i> Về trang chủ
-            </a>
+            <form action="<?= BASE_URL ?>/admin/login" method="POST">
+                <?= csrfField() ?>
+                <div class="login-form-head">
+                    <h4>SONNE Admin</h4>
+                    <p>Đăng nhập để quản lý hệ thống</p>
+                </div>
+                <div class="login-form-body">
+                    <div class="form-gp">
+                        <label for="email">Địa chỉ Email</label>
+                        <input type="email" id="email" name="email"
+                               placeholder="admin@sonne.vn" required autocomplete="email">
+                        <i class="ti-email"></i>
+                        <div class="text-danger"></div>
+                    </div>
+                    <div class="form-gp">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" name="password"
+                               placeholder="••••••••" required>
+                        <i class="ti-lock"></i>
+                        <div class="text-danger"></div>
+                    </div>
+                    <div class="submit-btn-area">
+                        <button id="form_submit" type="submit">
+                            Đăng nhập <i class="ti-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="form-footer text-center mt-4">
+                        <a href="<?= BASE_URL ?>/" style="color:#999;font-size:.875rem;text-decoration:none;">
+                            <i class="ti-arrow-left"></i> Về trang chủ
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<!-- login area end -->
+
+<script src="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?= BASE_URL ?>/../srtdash-admin-dashboard-master/srtdash/assets/js/scripts.js"></script>
 </body>
 </html>

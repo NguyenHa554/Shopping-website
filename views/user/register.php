@@ -3,72 +3,98 @@
 $form = $_SESSION['form'] ?? [];
 unset($_SESSION['form']);
 ?>
-<section class="auth-section">
-    <div class="auth-card">
-        <div class="auth-header">
-            <a href="<?= url() ?>" class="logo">SONNE</a>
-            <h1>Tạo tài khoản</h1>
-            <p>Tham gia cộng đồng SONNE ngay hôm nay</p>
-        </div>
+<section class="py-5 bg-light min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <a href="<?= url() ?>" class="text-decoration-none text-dark d-inline-block mb-3">
+                                <span class="fs-3 fw-bold font-playfair tracking-wider">SONNE</span>
+                            </a>
+                            <h1 class="h3 fw-bold mb-1">Tạo tài khoản</h1>
+                            <p class="text-muted">Tham gia cộng đồng SONNE ngay hôm nay</p>
+                        </div>
 
-        <form action="<?= url('register') ?>" method="POST" id="registerForm" novalidate>
-            <?= csrfField() ?>
+                        <form action="<?= url('register') ?>" method="POST" id="registerForm" novalidate>
+                            <?= csrfField() ?>
 
-            <div class="form-group">
-                <label for="full_name">Họ và tên <span class="required">*</span></label>
-                <input type="text" id="full_name" name="full_name" class="form-control"
-                       value="<?= e($form['name'] ?? '') ?>" placeholder="Nguyễn Văn A" required>
-                <span class="field-error" id="nameError"></span>
-            </div>
+                            <div class="mb-3">
+                                <label for="full_name" class="form-label fw-medium text-dark">Họ và tên <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted"><span class="material-symbols-rounded fs-5">person</span></span>
+                                    <input type="text" id="full_name" name="full_name" class="form-control border-start-0 ps-0 shadow-none"
+                                           value="<?= e($form['name'] ?? '') ?>" placeholder="Nguyễn Văn A" required>
+                                </div>
+                                <div class="invalid-feedback d-block fw-medium" id="nameError"></div>
+                            </div>
 
-            <div class="form-group">
-                <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" class="form-control"
-                       value="<?= e($form['email'] ?? '') ?>" placeholder="email@example.com" required>
-                <span class="field-error" id="emailError"></span>
-            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-medium text-dark">Email <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted"><span class="material-symbols-rounded fs-5">mail</span></span>
+                                    <input type="email" id="email" name="email" class="form-control border-start-0 ps-0 shadow-none"
+                                           value="<?= e($form['email'] ?? '') ?>" placeholder="email@example.com" required>
+                                </div>
+                                <div class="invalid-feedback d-block fw-medium" id="emailError"></div>
+                            </div>
 
-            <div class="form-group">
-                <label for="phone">Số điện thoại</label>
-                <input type="tel" id="phone" name="phone" class="form-control"
-                       value="<?= e($form['phone'] ?? '') ?>" placeholder="0901234567">
-            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label fw-medium text-dark">Số điện thoại</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted"><span class="material-symbols-rounded fs-5">phone</span></span>
+                                    <input type="tel" id="phone" name="phone" class="form-control border-start-0 ps-0 shadow-none"
+                                           value="<?= e($form['phone'] ?? '') ?>" placeholder="0901234567">
+                                </div>
+                            </div>
 
-            <div class="form-group">
-                <label for="password">Mật khẩu <span class="required">*</span></label>
-                <div class="input-group">
-                    <input type="password" id="password" name="password" class="form-control"
-                           placeholder="Tối thiểu 8 ký tự" required>
-                    <button type="button" class="toggle-pass" data-target="password"><i class="fa fa-eye"></i></button>
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-medium text-dark">Mật khẩu <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted"><span class="material-symbols-rounded fs-5">lock</span></span>
+                                    <input type="password" id="password" name="password" class="form-control border-start-0 border-end-0 px-0 shadow-none"
+                                           placeholder="Tối thiểu 8 ký tự" required>
+                                    <button type="button" class="input-group-text bg-white text-muted toggle-pass border-start-0 shadow-none hover-primary" data-target="password">
+                                        <span class="material-symbols-rounded fs-5">visibility</span>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback d-block fw-medium" id="passError"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="confirm_password" class="form-label fw-medium text-dark">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0 text-muted"><span class="material-symbols-rounded fs-5">lock_reset</span></span>
+                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control border-start-0 border-end-0 px-0 shadow-none"
+                                           placeholder="Nhập lại mật khẩu" required>
+                                    <button type="button" class="input-group-text bg-white text-muted toggle-pass border-start-0 shadow-none hover-primary" data-target="confirm_password">
+                                        <span class="material-symbols-rounded fs-5">visibility</span>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback d-block fw-medium" id="confirmError"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input border-secondary mt-1" type="checkbox" id="agree" required>
+                                    <label class="form-check-label text-secondary" for="agree">
+                                        Tôi đồng ý với <a href="<?= url('faq') ?>" target="_blank" class="text-primary text-decoration-none fw-medium hover-opacity-75">điều khoản dịch vụ</a> và chính sách bảo mật của SONNE
+                                    </label>
+                                </div>
+                                <div class="invalid-feedback d-block fw-medium" id="agreeError"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-medium shadow-sm d-flex justify-content-center align-items-center gap-2" id="registerBtn">
+                                <span class="material-symbols-rounded fs-5">person_add</span> Đăng ký
+                            </button>
+                        </form>
+                    </div>
+                    <div class="card-footer bg-white border-top text-center py-4">
+                        <p class="text-secondary mb-0">Đã có tài khoản? <a href="<?= url('login') ?>" class="text-primary text-decoration-none fw-bold hover-opacity-75">Đăng nhập</a></p>
+                    </div>
                 </div>
-                <span class="field-error" id="passError"></span>
             </div>
-
-            <div class="form-group">
-                <label for="confirm_password">Xác nhận mật khẩu <span class="required">*</span></label>
-                <div class="input-group">
-                    <input type="password" id="confirm_password" name="confirm_password" class="form-control"
-                           placeholder="Nhập lại mật khẩu" required>
-                    <button type="button" class="toggle-pass" data-target="confirm_password"><i class="fa fa-eye"></i></button>
-                </div>
-                <span class="field-error" id="confirmError"></span>
-            </div>
-
-            <div class="form-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="agree" required>
-                    Tôi đồng ý với <a href="<?= url('faq') ?>" target="_blank">điều khoản dịch vụ</a>
-                </label>
-                <span class="field-error" id="agreeError"></span>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block" id="registerBtn">
-                <i class="fa fa-user-plus"></i> Đăng ký
-            </button>
-        </form>
-
-        <div class="auth-footer">
-            <p>Đã có tài khoản? <a href="<?= url('login') ?>">Đăng nhập</a></p>
         </div>
     </div>
 </section>
@@ -76,29 +102,47 @@ unset($_SESSION['form']);
 <script>
 document.getElementById('registerForm').addEventListener('submit', function(e) {
     let ok = true;
-    const clearErrors = () => ['nameError','emailError','passError','confirmError','agreeError']
-        .forEach(id => document.getElementById(id).textContent = '');
-    clearErrors();
+    const errorIds = ['nameError','emailError','passError','confirmError','agreeError'];
+    const fields = ['full_name', 'email', 'password', 'confirm_password', 'agree'];
+    
+    errorIds.forEach(id => document.getElementById(id).textContent = '');
+    fields.forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.classList.remove('is-invalid');
+    });
 
-    const name    = document.getElementById('full_name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const pass    = document.getElementById('password').value;
-    const confirm = document.getElementById('confirm_password').value;
-    const agree   = document.getElementById('agree').checked;
+    const nameF    = document.getElementById('full_name');
+    const emailF   = document.getElementById('email');
+    const passF    = document.getElementById('password');
+    const confirmF = document.getElementById('confirm_password');
+    const agreeF   = document.getElementById('agree');
+    
+    const name    = nameF.value.trim();
+    const email   = emailF.value.trim();
+    const pass    = passF.value;
+    const confirm = confirmF.value;
+    const agree   = agreeF.checked;
 
-    if (name.length < 2)  { document.getElementById('nameError').textContent = 'Họ tên tối thiểu 2 ký tự.'; ok = false; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('emailError').textContent = 'Email không hợp lệ.'; ok = false; }
-    if (pass.length < 8)  { document.getElementById('passError').textContent = 'Mật khẩu tối thiểu 8 ký tự.'; ok = false; }
-    if (pass !== confirm) { document.getElementById('confirmError').textContent = 'Mật khẩu xác nhận không khớp.'; ok = false; }
-    if (!agree)           { document.getElementById('agreeError').textContent = 'Vui lòng đồng ý điều khoản.'; ok = false; }
-    if (!ok) e.preventDefault();
+    if (name.length < 2)  { document.getElementById('nameError').textContent = 'Họ tên tối thiểu 2 ký tự.'; nameF.classList.add('is-invalid'); ok = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('emailError').textContent = 'Email không hợp lệ.'; emailF.classList.add('is-invalid'); ok = false; }
+    if (pass.length < 8)  { document.getElementById('passError').textContent = 'Mật khẩu tối thiểu 8 ký tự.'; passF.classList.add('is-invalid'); ok = false; }
+    if (pass !== confirm) { document.getElementById('confirmError').textContent = 'Mật khẩu xác nhận không khớp.'; confirmF.classList.add('is-invalid'); ok = false; }
+    if (!agree)           { document.getElementById('agreeError').textContent = 'Vui lòng đồng ý điều khoản.'; agreeF.classList.add('is-invalid'); ok = false; }
+    
+    if (!ok) {
+        e.preventDefault();
+    } else {
+        const btn = document.getElementById('registerBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang xử lý...';
+    }
 });
 document.querySelectorAll('.toggle-pass').forEach(btn => {
     btn.addEventListener('click', () => {
         const inp = document.getElementById(btn.dataset.target);
+        const icon = btn.querySelector('.material-symbols-rounded');
         inp.type = inp.type === 'password' ? 'text' : 'password';
-        btn.querySelector('i').classList.toggle('fa-eye');
-        btn.querySelector('i').classList.toggle('fa-eye-slash');
+        icon.textContent = inp.type === 'password' ? 'visibility' : 'visibility_off';
     });
 });
 </script>
