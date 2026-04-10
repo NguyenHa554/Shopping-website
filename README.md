@@ -1,6 +1,6 @@
 # SONNE - E-Commerce Website
 
-A full-featured PHP e-commerce website for a beauty and skincare brand. Built with a custom MVC architecture from scratch.
+A full-featured PHP e-commerce website . Built with a custom MVC architecture from scratch.
 
 ## Table of Contents
 
