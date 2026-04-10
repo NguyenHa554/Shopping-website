@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /config/
+Disallow: /core/
+Disallow: /controllers/
+Disallow: /models/
+Disallow: /views/
+
+Sitemap: /sitemap.xml

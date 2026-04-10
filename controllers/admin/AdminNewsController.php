@@ -18,6 +18,16 @@ class AdminNewsController extends Controller {
         Middleware::requireAdmin();
         $this->validateCsrf();
         $title   = trim($_POST['title'] ?? '');
+        $body    = trim($_POST['body'] ?? '');
+        $status  = in_array($_POST['status'] ?? 'published', ['draft', 'published'], true)
+            ? $_POST['status']
+            : 'published';
+
+        if (mb_strlen($title) < 5 || $body === '') {
+            $this->redirectWith('/admin/news/create', 'error', 'Tiêu đề tối thiểu 5 ký tự và nội dung không được để trống.');
+            return;
+        }
+
         $slug    = slugify($title) . '-' . time();
         $cover   = null;
         if (!empty($_FILES['cover_image']['name'])) $cover = handleImageUpload($_FILES['cover_image'], 'news');
@@ -26,12 +36,12 @@ class AdminNewsController extends Controller {
             'title'            => $title,
             'slug'             => $slug,
             'summary'          => $_POST['summary'] ?? null,
-            'body'             => $_POST['body'] ?? null,
+            'body'             => $body,
             'cover_image'      => $cover,
             'meta_title'       => $_POST['meta_title'] ?? $title,
             'meta_description' => $_POST['meta_description'] ?? null,
             'meta_keywords'    => $_POST['meta_keywords'] ?? null,
-            'status'           => $_POST['status'] ?? 'published',
+            'status'           => $status,
             'published_at'     => date('Y-m-d H:i:s'),
         ]);
         $this->redirectWith('/admin/news', 'success', 'Thêm bài viết thành công.');
@@ -48,20 +58,31 @@ class AdminNewsController extends Controller {
         $id      = (int)($p['id'] ?? 0);
         $article = NewsModel::find($id);
         if (!$article) { $this->redirect('/admin/news'); return; }
+        $title   = trim($_POST['title'] ?? '');
+        $body    = trim($_POST['body'] ?? '');
+        $status  = in_array($_POST['status'] ?? 'published', ['draft', 'published'], true)
+            ? $_POST['status']
+            : 'published';
+
+        if (mb_strlen($title) < 5 || $body === '') {
+            $this->redirectWith('/admin/news/edit/' . $id, 'error', 'Tiêu đề tối thiểu 5 ký tự và nội dung không được để trống.');
+            return;
+        }
+
         $cover = $article['cover_image'];
         if (!empty($_FILES['cover_image']['name'])) {
             if ($cover) deleteUpload($cover);
             $cover = handleImageUpload($_FILES['cover_image'], 'news');
         }
         NewsModel::update($id, [
-            'title'            => trim($_POST['title'] ?? ''),
+            'title'            => $title,
             'summary'          => $_POST['summary'] ?? null,
-            'body'             => $_POST['body'] ?? null,
+            'body'             => $body,
             'cover_image'      => $cover,
             'meta_title'       => $_POST['meta_title'] ?? null,
             'meta_description' => $_POST['meta_description'] ?? null,
             'meta_keywords'    => $_POST['meta_keywords'] ?? null,
-            'status'           => $_POST['status'] ?? 'published',
+            'status'           => $status,
         ]);
         $this->redirectWith('/admin/news', 'success', 'Cập nhật bài viết thành công.');
     }

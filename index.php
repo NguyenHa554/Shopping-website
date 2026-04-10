@@ -43,6 +43,9 @@ $router = new Router();
 // Home
 $router->get('/',                    'HomeController@index');
 $router->get('/about',               'HomeController@about');
+$router->get('/services',            'HomeController@services');
+$router->get('/pricing',             'HomeController@pricing');
+$router->get('/seller',              'HomeController@seller');
 $router->get('/contact',             'ContactController@index');
 $router->post('/contact',            'ContactController@submit');
 $router->get('/faq',                 'FaqController@index');
@@ -126,6 +129,10 @@ $router->post('/admin/news/store',    'AdminNewsController@store');
 $router->get('/admin/news/edit/{id}', 'AdminNewsController@edit');
 $router->post('/admin/news/update/{id}', 'AdminNewsController@update');
 $router->post('/admin/news/delete/{id}', 'AdminNewsController@delete');
+
+// Admin news comments
+$router->get('/admin/news-comments',           'AdminNewsCommentController@index');
+$router->post('/admin/news-comments/delete/{id}', 'AdminNewsCommentController@delete');
 
 // Admin contacts
 $router->get('/admin/contacts',       'AdminContactController@index');
