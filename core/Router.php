@@ -30,8 +30,9 @@ class Router {
         }
 
         $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-        // Strip base path prefix
-        $base = '/2212288/Web/sonne';
+        // Strip current app base path when deployed in a subfolder
+        $base = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
+        $base = $base === '/' ? '' : rtrim($base, '/');
         if (str_starts_with($uri, $base)) {
             $uri = substr($uri, strlen($base));
         }

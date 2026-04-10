@@ -4,6 +4,7 @@
 
 # Local database dumps
 *.sql
+!sonne.sql
 
 # Dependencies
 /vendor/

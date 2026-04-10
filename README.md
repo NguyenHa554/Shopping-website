@@ -319,4 +319,15 @@ After importing `sonne.sql`, use these demo accounts:
 
 This project is for educational and demonstration purposes.
 
+## Notes When Running On Another Machine
+
+- Ensure the project runs from the repository root (where `index.php` is located).
+- Import `sonne.sql` into a database named `sonne_db` before first run.
+- Update MySQL credentials in `config/db.php` to match the target machine.
+- If using Apache, enable `mod_rewrite` and allow `.htaccess` overrides.
+- If using PHP built-in server, run from project root:
+   - `php -S 127.0.0.1:8080 -t . index.php`
+- Admin UI loads Bootstrap/Font Awesome/Google Fonts from CDN, so internet access is required for full styling.
+- If ports or host differ, open the exact URL shown by your server output.
+
 Built with care for SONNE.
