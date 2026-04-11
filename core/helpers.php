@@ -111,6 +111,64 @@ function handleImageUpload(array $file, string $subDir = 'products'): ?string {
 }
 
 /**
+ * Download image from URL and save to uploads directory, returns relative path or null
+ */
+function downloadImageFromUrl(string $url, string $subDir = 'products'): ?string {
+    $url = trim($url);
+    if (empty($url)) return null;
+
+    // Validate URL format
+    if (!filter_var($url, FILTER_VALIDATE_URL)) return null;
+
+    // Only allow HTTP/HTTPS
+    $parsed = parse_url($url);
+    if (!in_array($parsed['scheme'] ?? '', ['http', 'https'])) return null;
+
+    // Fetch image with cURL
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_MAXREDIRS      => 5,
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; ImageDownloader/1.0)',
+    ]);
+    $imageData = curl_exec($ch);
+    $httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+    curl_close($ch);
+
+    if ($httpCode !== 200 || !$imageData) return null;
+
+    // Validate it's an image
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime  = $finfo->buffer($imageData);
+    if (!in_array($mime, ALLOWED_IMAGE_TYPES, true)) return null;
+
+    // Check file size
+    if (strlen($imageData) > MAX_UPLOAD_SIZE) return null;
+
+    $ext  = match($mime) {
+        'image/jpeg' => 'jpg',
+        'image/png'  => 'png',
+        'image/webp' => 'webp',
+        'image/gif'  => 'gif',
+        default      => 'jpg',
+    };
+
+    $dir = UPLOAD_PATH . '/' . $subDir;
+    if (!is_dir($dir)) mkdir($dir, 0755, true);
+
+    $filename = uniqid('', true) . '.' . $ext;
+    $dest     = $dir . '/' . $filename;
+
+    if (file_put_contents($dest, $imageData) === false) return null;
+
+    return 'uploads/' . $subDir . '/' . $filename;
+}
+
+/**
  * Delete an uploaded file safely (must be inside uploads/)
  */
 function deleteUpload(string $relativePath): void {

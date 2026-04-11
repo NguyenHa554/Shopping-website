@@ -24,7 +24,11 @@ class AdminProductController extends Controller {
         $this->validateCsrf();
 
         $coverPath = null;
-        if (!empty($_FILES['cover_image']['name'])) {
+        
+        // Priority: URL > File Upload
+        if (!empty($_POST['cover_image_url'])) {
+            $coverPath = downloadImageFromUrl($_POST['cover_image_url'], 'products');
+        } elseif (!empty($_FILES['cover_image']['name'])) {
             $coverPath = handleImageUpload($_FILES['cover_image'], 'products');
         }
 
@@ -44,8 +48,19 @@ class AdminProductController extends Controller {
         ];
         $pid = ProductModel::create($data);
 
-        // Extra images
-        if (!empty($_FILES['extra_images']['name'][0])) {
+        // Extra images: Priority URLs > File Upload
+        $extraImagesAdded = 0;
+        if (!empty($_POST['extra_image_urls'])) {
+            $urls = array_filter(array_map('trim', explode("\n", $_POST['extra_image_urls'])));
+            foreach ($urls as $i => $url) {
+                $path = downloadImageFromUrl($url, 'products');
+                if ($path) {
+                    ProductModel::addImage($pid, $path, $i);
+                    $extraImagesAdded++;
+                }
+            }
+        }
+        if (!empty($_FILES['extra_images']['name'][0]) && $extraImagesAdded === 0) {
             foreach ($_FILES['extra_images']['name'] as $i => $name) {
                 $file = ['name'=>$name,'type'=>$_FILES['extra_images']['type'][$i],
                          'tmp_name'=>$_FILES['extra_images']['tmp_name'][$i],
@@ -74,7 +89,15 @@ class AdminProductController extends Controller {
         if (!$product) { $this->redirect('/admin/products'); return; }
 
         $coverPath = $product['cover_image'];
-        if (!empty($_FILES['cover_image']['name'])) {
+        
+        // Priority: URL > File Upload
+        if (!empty($_POST['cover_image_url'])) {
+            $newPath = downloadImageFromUrl($_POST['cover_image_url'], 'products');
+            if ($newPath) {
+                if ($coverPath) deleteUpload($coverPath);
+                $coverPath = $newPath;
+            }
+        } elseif (!empty($_FILES['cover_image']['name'])) {
             if ($coverPath) deleteUpload($coverPath);
             $coverPath = handleImageUpload($_FILES['cover_image'], 'products');
         }

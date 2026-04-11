@@ -136,6 +136,15 @@ $p      = $product ?? [];
                                          style="max-height:100px;border-radius:6px;">
                                 </div>
                                 <?php endif; ?>
+                                
+                                <!-- URL Input -->
+                                <div class="mb-2">
+                                    <input type="url" name="cover_image_url" class="form-control" 
+                                           placeholder="Dán URL ảnh (https://...)" accept="image/*">
+                                    <small class="text-muted">Dán link ảnh trực tiếp từ Internet, ưu tiên hơn tải file</small>
+                                </div>
+                                
+                                <!-- File Upload -->
                                 <input type="file" name="cover_image" class="form-control" accept="image/*">
                             </div>
                         </div>
@@ -143,7 +152,7 @@ $p      = $product ?? [];
                         <!-- Extra images -->
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-form-label">Ảnh bổ sung (chọn nhiều)</label>
+                                <label class="col-form-label">Ảnh bổ sung</label>
                                 <?php if (!empty($p['images'])): ?>
                                 <div class="mb-2 d-flex flex-wrap gap-2">
                                     <?php foreach ($p['images'] as $img): ?>
@@ -152,6 +161,15 @@ $p      = $product ?? [];
                                     <?php endforeach; ?>
                                 </div>
                                 <?php endif; ?>
+                                
+                                <!-- URL Input -->
+                                <div class="mb-2">
+                                    <textarea name="extra_image_urls" class="form-control" rows="3"
+                                              placeholder="Dán URL ảnh (mỗi dòng 1 URL)&#10;https://example.com/image1.jpg&#10;https://example.com/image2.jpg"></textarea>
+                                    <small class="text-muted">Mỗi dòng 1 URL ảnh, ưu tiên hơn tải file</small>
+                                </div>
+                                
+                                <!-- File Upload -->
                                 <input type="file" name="extra_images[]" class="form-control"
                                        accept="image/*" multiple>
                             </div>
