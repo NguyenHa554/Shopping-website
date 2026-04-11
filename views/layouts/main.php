@@ -66,7 +66,9 @@
                         <?php if (currentUser()['avatar']): ?>
                         <img src="<?= asset(e(currentUser()['avatar'])) ?>" alt="avatar" class="rounded-circle" width="36" height="36" style="object-fit:cover;">
                         <?php else: ?>
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5jMwIDVYp69Sumcwau6yFuygLDpN8nCT9XP2CmkE5jufpmg-UNjWAfZOv5FVUyUilee4bkbUW7y0PNRaIi7Nj2Pn0vp0IPAaDHJRwXwqM9ZoVuG5ZIqH16WNdrf89p48lkhP3z2pc_1QF0_rUpKd_4pinE267Ituut7oJqHS9DhtRlJzDYQ3_F9GAW4UZ_Eg-NsnUzpl_KMk28iVQnrpBE8qMIMSssGh68mcH7ZS07jTb53qArv3KfeK5j4puKVfdSzjWhmb7Mag" alt="avatar" class="rounded-circle" width="36" height="36">
+                        <span class="rounded-circle bg-light border d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;">
+                            <span class="material-symbols-rounded text-secondary" style="font-size:20px;">person</span>
+                        </span>
                         <?php endif; ?>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
@@ -80,8 +82,8 @@
                     </ul>
                 </div>
                 <?php else: ?>
-                <a href="<?= url('login') ?>" class="btn btn-link text-dark p-0 border-0">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5jMwIDVYp69Sumcwau6yFuygLDpN8nCT9XP2CmkE5jufpmg-UNjWAfZOv5FVUyUilee4bkbUW7y0PNRaIi7Nj2Pn0vp0IPAaDHJRwXwqM9ZoVuG5ZIqH16WNdrf89p48lkhP3z2pc_1QF0_rUpKd_4pinE267Ituut7oJqHS9DhtRlJzDYQ3_F9GAW4UZ_Eg-NsnUzpl_KMk28iVQnrpBE8qMIMSssGh68mcH7ZS07jTb53qArv3KfeK5j4puKVfdSzjWhmb7Mag" alt="avatar" class="rounded-circle" width="36" height="36">
+                <a href="<?= url('login') ?>" class="btn btn-link text-dark p-0 border-0 rounded-circle bg-light border d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;" aria-label="Đăng nhập">
+                    <span class="material-symbols-rounded text-secondary" style="font-size:20px;">person</span>
                 </a>
                 <?php endif; ?>
             </div>
@@ -109,13 +111,14 @@
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2"><a href="<?= url('about') ?>" class="text-decoration-none text-muted small hover-primary">Giới thiệu</a></li>
                     <li class="mb-2"><a href="#" class="text-decoration-none text-muted small hover-primary">Tuyển dụng</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-muted small hover-primary">Điều khoản</a></li>
+                    <li class="mb-2"><a href="<?= url('pricing') ?>" class="text-decoration-none text-muted small hover-primary">Bảng giá</a></li>
                     <li class="mb-2"><a href="#" class="text-decoration-none text-muted small hover-primary">Bảo mật</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md-2">
                 <h5 class="fs-6 fw-bold mb-3">Hỗ trợ</h5>
                 <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="<?= url('services') ?>" class="text-decoration-none text-muted small hover-primary">Dịch vụ</a></li>
                     <li class="mb-2"><a href="<?= url('faq') ?>" class="text-decoration-none text-muted small hover-primary">Trung tâm trợ giúp</a></li>
                     <li class="mb-2"><a href="<?= url('faq') ?>" class="text-decoration-none text-muted small hover-primary">Hướng dẫn mua</a></li>
                     <li class="mb-2"><a href="#" class="text-decoration-none text-muted small hover-primary">Đổi trả</a></li>

@@ -1,6 +1,6 @@
 # SONNE - E-Commerce Website
 
-A full-featured PHP e-commerce website for a beauty and skincare brand. Built with a custom MVC architecture from scratch.
+A full-featured PHP e-commerce website . Built with a custom MVC architecture from scratch.
 
 ## Table of Contents
 
@@ -186,10 +186,7 @@ sonne/
    ```
 
 4. **Configure base URL** (if needed):
-   Edit `config/config.php` to match your installation path:
-   ```php
-   define('BASE_URL', 'http://localhost/your/path/sonne');
-   ```
+   `config/config.php` now auto-detects base URL for both root and subfolder deployments.
 
 5. **Configure Apache**:
    - Ensure `mod_rewrite` is enabled
@@ -233,7 +230,7 @@ private static string $charset  = 'utf8mb4';
 
 ## Database Schema
 
-The database includes 14 tables:
+The database includes 13 tables:
 
 1. **users** - User accounts (members and admins)
 2. **categories** - Product categories
@@ -249,6 +246,32 @@ The database includes 14 tables:
 12. **faqs** - Frequently asked questions
 13. **page_contents** - CMS content for editable pages
 
+## Default Accounts
+
+After importing `sonne.sql`, use these demo accounts:
+
+- **Admin**
+   - Email: `admin@sonne.vn`
+   - Password: `Admin@123`
+
+- **Member**
+   - Email: `member@sonne.vn`
+   - Password: `Admin@123`
+
+## Quick Start on Windows (XAMPP)
+
+1. Start Apache + MySQL in XAMPP.
+2. Create DB and import:
+    ```bash
+    C:\xampp\mysql\bin\mysql.exe -u root -e "CREATE DATABASE IF NOT EXISTS sonne_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+    C:\xampp\mysql\bin\mysql.exe -u root sonne_db < sonne.sql
+    ```
+3. Run with built-in PHP server (optional):
+    ```bash
+    C:\xampp\php\php.exe -S 127.0.0.1:8080 -t . index.php
+    ```
+4. Open: `http://127.0.0.1:8080`
+
 ## Tech Requirements
 
 - **PHP**: 7.4 or higher
@@ -261,6 +284,9 @@ The database includes 14 tables:
 ### Public Routes
 - `/` - Home page
 - `/about` - About page
+- `/services` - Services page
+- `/pricing` - Pricing page
+- `/seller` - Seller registration page
 - `/contact` - Contact form
 - `/faq` - FAQ page
 - `/login`, `/register`, `/logout` - Authentication
@@ -282,6 +308,7 @@ The database includes 14 tables:
 - `/admin/products` - Product management
 - `/admin/orders` - Order management
 - `/admin/news` - News management
+- `/admin/news-comments` - News comment moderation
 - `/admin/contacts` - Contact messages
 - `/admin/reviews` - Review management
 - `/admin/faq` - FAQ management
@@ -291,5 +318,16 @@ The database includes 14 tables:
 ## License
 
 This project is for educational and demonstration purposes.
+
+## Notes When Running On Another Machine
+
+- Ensure the project runs from the repository root (where `index.php` is located).
+- Import `sonne.sql` into a database named `sonne_db` before first run.
+- Update MySQL credentials in `config/db.php` to match the target machine.
+- If using Apache, enable `mod_rewrite` and allow `.htaccess` overrides.
+- If using PHP built-in server, run from project root:
+   - `php -S 127.0.0.1:8080 -t . index.php`
+- Admin UI loads Bootstrap/Font Awesome/Google Fonts from CDN, so internet access is required for full styling.
+- If ports or host differ, open the exact URL shown by your server output.
 
 Built with care for SONNE.

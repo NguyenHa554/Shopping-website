@@ -54,6 +54,42 @@ class NewsModel extends Model {
         DB::execute("UPDATE news_comments SET is_deleted=1 WHERE id=?", [$id]);
     }
 
+    public static function adminComments(int $offset, int $limit, string $search = ''): array {
+        $where  = "nc.is_deleted=0";
+        $params = [];
+        if ($search) {
+            $where  .= " AND (n.title LIKE ? OR u.full_name LIKE ? OR nc.comment LIKE ?)";
+            $params  = ["%$search%", "%$search%", "%$search%"];
+        }
+        $params[] = $limit;
+        $params[] = $offset;
+
+        return DB::fetchAll(
+            "SELECT nc.*, n.title AS news_title, n.slug AS news_slug, u.full_name AS user_name
+             FROM news_comments nc
+             JOIN news n ON n.id=nc.news_id
+             JOIN users u ON u.id=nc.user_id
+             WHERE {$where}
+             ORDER BY nc.id DESC
+             LIMIT ? OFFSET ?",
+            $params
+        );
+    }
+
+    public static function adminCommentCount(string $search = ''): int {
+        if ($search) {
+            return DB::count(
+                "SELECT COUNT(*)
+                 FROM news_comments nc
+                 JOIN news n ON n.id=nc.news_id
+                 JOIN users u ON u.id=nc.user_id
+                 WHERE nc.is_deleted=0 AND (n.title LIKE ? OR u.full_name LIKE ? OR nc.comment LIKE ?)",
+                ["%$search%", "%$search%", "%$search%"]
+            );
+        }
+        return DB::count("SELECT COUNT(*) FROM news_comments WHERE is_deleted=0");
+    }
+
     public static function adminList(int $offset, int $limit, string $search = ''): array {
         $where  = "n.deleted_at IS NULL";
         $params = [];

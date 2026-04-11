@@ -1,6 +1,5 @@
 Options -Indexes
 RewriteEngine On
-RewriteBase /2212288/Web/sonne/
 
 # Allow direct access to real files/dirs (CSS/JS/images/uploads)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
