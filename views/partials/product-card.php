@@ -7,7 +7,7 @@ $discount  = $hasSale ? round((1 - $price / $origPrice) * 100) : 0;
 ?>
 <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden position-relative product-card-hover" data-aos="fade-up">
     <?php if ($hasSale): ?>
-    <span class="position-absolute top-0 start-0 m-2 badge bg-danger text-white rounded-pill px-2 py-1 z-1">-<?= $discount ?>%</span>
+    <span class="position-absolute top-0 start-0 m-2 badge bg-danger text-white rounded-pill px-2 py-1 z-1" style="font-size: 0.75rem;">-<?= $discount ?>%</span>
     <?php endif; ?>
     <a href="<?= url('product/' . e($prod['slug'])) ?>" class="d-block position-relative ratio ratio-1x1 bg-light">
         <?php if ($prod['cover_image']): ?>

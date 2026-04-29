@@ -144,7 +144,7 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100"><span class="material-symbols-rounded fs-1 text-secondary">image</span></div>
                     <?php endif; ?>
                     <?php if ($discount > 0): ?>
-                    <span class="position-absolute top-0 start-0 m-2 badge bg-warning text-dark rounded-2 z-1 fw-bold px-2 py-1 shadow-sm" style="font-size: 0.65rem;">-<?= $discount ?>%</span>
+                    <span class="position-absolute top-0 start-0 m-2 badge bg-danger text-white rounded-pill z-1 px-2 py-1" style="font-size: 0.7rem;">-<?= $discount ?>%</span>
                     <?php endif; ?>
                 </div>
                 <div class="card-body p-3 d-flex flex-column bg-white">

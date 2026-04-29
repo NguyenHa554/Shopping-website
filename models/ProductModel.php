@@ -16,21 +16,33 @@ class ProductModel extends Model {
 
     public static function featured(int $limit = 8): array {
         return DB::fetchAll(
-            "SELECT * FROM products WHERE is_featured=1 AND status='active' AND deleted_at IS NULL ORDER BY id DESC LIMIT ?",
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.is_featured=1 AND p.status='active' AND p.deleted_at IS NULL 
+             ORDER BY p.id DESC LIMIT ?",
             [$limit]
         );
     }
 
     public static function flashSale(int $limit = 8): array {
         return DB::fetchAll(
-            "SELECT * FROM products WHERE is_flash_sale=1 AND flash_ends_at > NOW() AND status='active' AND deleted_at IS NULL LIMIT ?",
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.is_flash_sale=1 AND p.flash_ends_at > NOW() AND p.status='active' AND p.deleted_at IS NULL 
+             LIMIT ?",
             [$limit]
         );
     }
 
     public static function byCategory(int $catId, int $offset, int $limit): array {
         return DB::fetchAll(
-            "SELECT * FROM products WHERE category_id=? AND status='active' AND deleted_at IS NULL ORDER BY id DESC LIMIT ? OFFSET ?",
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.category_id=? AND p.status='active' AND p.deleted_at IS NULL 
+             ORDER BY p.id DESC LIMIT ? OFFSET ?",
             [$catId, $limit, $offset]
         );
     }
@@ -41,12 +53,13 @@ class ProductModel extends Model {
 
     public static function search(string $kw, int $offset, int $limit, string $sort = 'newest'): array {
         $orderBy = match($sort) {
-            'price_asc'  => 'COALESCE(sale_price, price) ASC',
-            'price_desc' => 'COALESCE(sale_price, price) DESC',
+            'price_asc'  => 'COALESCE(p.sale_price, p.price) ASC',
+            'price_desc' => 'COALESCE(p.sale_price, p.price) DESC',
             default      => 'p.id DESC',
         };
         return DB::fetchAll(
-            "SELECT p.*, c.name AS category_name FROM products p
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
              JOIN categories c ON p.category_id = c.id
              WHERE p.status='active' AND p.deleted_at IS NULL
                AND (p.name LIKE ? OR p.description LIKE ? OR c.name LIKE ?)
@@ -74,7 +87,8 @@ class ProductModel extends Model {
         $params[] = $limit;
         $params[] = $offset;
         return DB::fetchAll(
-            "SELECT p.*, c.name AS category_name FROM products p
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
              JOIN categories c ON p.category_id=c.id
              WHERE {$where} ORDER BY p.id DESC LIMIT ? OFFSET ?",
             $params
@@ -114,7 +128,11 @@ class ProductModel extends Model {
 
     public static function related(int $catId, int $excludeId, int $limit = 4): array {
         return DB::fetchAll(
-            "SELECT * FROM products WHERE category_id=? AND id!=? AND status='active' AND deleted_at IS NULL ORDER BY RAND() LIMIT ?",
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.category_id=? AND p.id!=? AND p.status='active' AND p.deleted_at IS NULL 
+             ORDER BY RAND() LIMIT ?",
             [$catId, $excludeId, $limit]
         );
     }
