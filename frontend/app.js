@@ -123,6 +123,8 @@ function renderFlashCards() {
 function renderRecommended() {
     const grid = document.getElementById('rec-grid');
     if (!grid) return;
+    // Keep server-rendered products on the real homepage.
+    if (grid.children.length > 0) return;
 
     // Simulate lazy load with delay
     setTimeout(() => {

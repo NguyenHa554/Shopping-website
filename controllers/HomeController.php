@@ -5,7 +5,7 @@ class HomeController extends Controller {
 
     public function index(array $p): void {
         $categories  = CategoryModel::allWithCount();
-        $featured    = ProductModel::featured(8);
+        $featured    = ProductModel::recommended(10);
         $flashSale   = ProductModel::flashSale(8);
         $newsLatest  = NewsModel::published(0, 3);
         $pageContent = PageContentModel::allAsMap();

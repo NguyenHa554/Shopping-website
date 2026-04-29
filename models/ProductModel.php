@@ -25,6 +25,44 @@ class ProductModel extends Model {
         );
     }
 
+    /**
+     * Lấy sản phẩm gợi ý: ưu tiên is_featured=1, nếu không đủ thì bổ sung sản phẩm active mới nhất.
+     */
+    public static function recommended(int $limit = 10): array {
+        // Lấy sản phẩm featured trước
+        $featured = DB::fetchAll(
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.is_featured=1 AND p.status='active' AND p.deleted_at IS NULL 
+             ORDER BY p.id DESC LIMIT ?",
+            [$limit]
+        );
+
+        if (count($featured) >= $limit) {
+            return $featured;
+        }
+
+        // Nếu chưa đủ, lấy thêm sản phẩm mới nhất (tránh trùng)
+        $excludeIds = array_column($featured, 'id');
+        $need = $limit - count($featured);
+
+        $placeholders = $excludeIds ? implode(',', array_fill(0, count($excludeIds), '?')) : '0';
+        $params = array_merge($excludeIds, [$need]);
+
+        $extra = DB::fetchAll(
+            "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.status='active' AND p.deleted_at IS NULL
+               AND p.id NOT IN ({$placeholders})
+             ORDER BY p.id DESC LIMIT ?",
+            $params
+        );
+
+        return array_merge($featured, $extra);
+    }
+
     public static function flashSale(int $limit = 8): array {
         return DB::fetchAll(
             "SELECT p.*, c.name AS category_name, c.slug AS category_slug 
