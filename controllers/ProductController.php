@@ -62,6 +62,28 @@ class ProductController extends Controller {
         ], 'main');
     }
 
+    public function suggest(array $p): void {
+        $keyword = $this->get('q');
+        if (mb_strlen($keyword) < 1) {
+            $this->json(['items' => []]);
+        }
+
+        $items = array_map(static function (array $product): array {
+            $price = (float)($product['sale_price'] ?? $product['price']);
+            return [
+                'name' => $product['name'],
+                'slug' => $product['slug'],
+                'url' => url('product/' . $product['slug']),
+                'image' => $product['cover_image'] ? asset($product['cover_image']) : null,
+                'price' => $price,
+                'price_text' => formatPrice($price),
+                'category_name' => $product['category_name'],
+            ];
+        }, ProductModel::searchSuggestions($keyword, 6));
+
+        $this->json(['items' => $items]);
+    }
+
     public function category(array $p): void {
         $cat = CategoryModel::findBySlug($p['slug'] ?? '');
         if (!$cat) { http_response_code(404); $this->render('errors/404', []); return; }

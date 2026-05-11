@@ -43,12 +43,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarContent">
-            <form action="<?= url('search') ?>" method="GET" class="d-flex mx-auto my-3 my-lg-0 w-100" style="max-width: 500px;">
+            <form action="<?= url('search') ?>" method="GET" class="d-flex mx-auto my-3 my-lg-0 w-100 position-relative" style="max-width: 500px;">
                 <div class="input-group">
                     <span class="input-group-text bg-light border-end-0 text-muted"><span class="material-symbols-rounded fs-5">search</span></span>
                     <input type="search" name="q" class="form-control bg-light border-start-0 shadow-none ps-0" placeholder="Tìm kiếm sản phẩm..." value="<?= e($_GET['q'] ?? '') ?>" id="main-search">
                     <button type="submit" class="btn btn-dark px-4 fw-medium">Tìm kiếm</button>
                 </div>
+                <div id="searchSuggestBox" class="list-group position-absolute top-100 start-0 end-0 mt-2 shadow-sm d-none" style="z-index: 1080;"></div>
             </form>
 
             <div class="d-flex align-items-center gap-3 ms-lg-3">

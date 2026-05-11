@@ -258,6 +258,130 @@
     }
 
     // ── Init ──────────────────────────────────────────────────────
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, ch => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;',
+        }[ch]));
+    }
+
+    function initSearchSuggest() {
+        const input = document.getElementById('main-search');
+        const box = document.getElementById('searchSuggestBox');
+        if (!input || !box) return;
+
+        let timer = null;
+        let requestId = 0;
+        let activeIndex = -1;
+        let items = [];
+
+        input.setAttribute('autocomplete', 'off');
+        input.setAttribute('aria-autocomplete', 'list');
+        input.setAttribute('aria-expanded', 'false');
+        input.setAttribute('aria-controls', 'searchSuggestBox');
+
+        function hideSuggest() {
+            box.classList.add('d-none');
+            box.innerHTML = '';
+            input.setAttribute('aria-expanded', 'false');
+            activeIndex = -1;
+            items = [];
+        }
+
+        function setActive(nextIndex) {
+            const links = box.querySelectorAll('[data-suggest-index]');
+            links.forEach(el => el.classList.remove('active'));
+            if (nextIndex < 0 || nextIndex >= links.length) {
+                activeIndex = -1;
+                return;
+            }
+            activeIndex = nextIndex;
+            links[activeIndex].classList.add('active');
+            links[activeIndex].scrollIntoView({ block: 'nearest' });
+        }
+
+        function renderSuggest(data) {
+            items = Array.isArray(data) ? data : [];
+            if (!items.length) {
+                hideSuggest();
+                return;
+            }
+
+            box.innerHTML = items.map((item, index) => `
+                <a href="${escapeHtml(item.url)}" class="list-group-item list-group-item-action border-0 border-bottom py-3" data-suggest-index="${index}">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light rounded-3 overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                            ${item.image
+                                ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="w-100 h-100" style="object-fit: cover;">`
+                                : `<span class="material-symbols-rounded text-secondary">image</span>`}
+                        </div>
+                        <div class="min-w-0 flex-grow-1">
+                            <div class="fw-medium text-dark text-truncate">${escapeHtml(item.name)}</div>
+                            <div class="small text-muted text-truncate">${escapeHtml(item.category_name || '')}</div>
+                        </div>
+                        <div class="text-danger fw-semibold text-nowrap">${escapeHtml(item.price_text)}</div>
+                    </div>
+                </a>
+            `).join('');
+
+            box.classList.remove('d-none');
+            input.setAttribute('aria-expanded', 'true');
+            activeIndex = -1;
+        }
+
+        function fetchSuggest(keyword) {
+            requestId += 1;
+            const currentId = requestId;
+            fetch(`${BASE_URL}/search/suggest?q=${encodeURIComponent(keyword)}`)
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(data => {
+                    if (currentId !== requestId) return;
+                    renderSuggest(data.items || []);
+                })
+                .catch(() => {
+                    if (currentId !== requestId) return;
+                    hideSuggest();
+                });
+        }
+
+        input.addEventListener('input', () => {
+            const keyword = input.value.trim();
+            clearTimeout(timer);
+            if (keyword.length < 1) {
+                hideSuggest();
+                return;
+            }
+            timer = setTimeout(() => fetchSuggest(keyword), 180);
+        });
+
+        input.addEventListener('keydown', e => {
+            const links = box.querySelectorAll('[data-suggest-index]');
+            if (!links.length) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActive(activeIndex + 1 >= links.length ? 0 : activeIndex + 1);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActive(activeIndex - 1 < 0 ? links.length - 1 : activeIndex - 1);
+            } else if (e.key === 'Enter' && activeIndex >= 0) {
+                e.preventDefault();
+                links[activeIndex].click();
+            } else if (e.key === 'Escape') {
+                hideSuggest();
+            }
+        });
+
+        document.addEventListener('click', e => {
+            if (!box.contains(e.target) && e.target !== input) hideSuggest();
+        });
+
+        input.form?.addEventListener('submit', hideSuggest);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         fetchCartCount();
         syncGuestCartOnLogin();
@@ -267,6 +391,7 @@
         initUserDropdown();
         initFlash();
         initLazyLoad();
+        initSearchSuggest();
         bindCartActions();
         recalcCartSummary();
     });

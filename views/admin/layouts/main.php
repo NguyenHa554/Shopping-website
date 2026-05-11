@@ -64,6 +64,13 @@
                             </a>
                         </li>
 
+                        <!-- Carts -->
+                        <li <?= str_contains($_SERVER['REQUEST_URI']??'', '/admin/carts') ? 'class="active"' : '' ?>>
+                            <a href="<?= BASE_URL ?>/admin/carts">
+                                <i class="fa-solid fa-basket-shopping fa-fw me-2"></i><span>Gi&#7887; h&#224;ng</span>
+                            </a>
+                        </li>
+
                         <!-- News -->
                         <li <?= (str_contains($_SERVER['REQUEST_URI']??'', '/admin/news') || str_contains($_SERVER['REQUEST_URI']??'', '/admin/news-comments')) ? 'class="active"' : '' ?>>
                             <a href="<?= BASE_URL ?>/admin/news">

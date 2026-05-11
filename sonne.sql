@@ -7,6 +7,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS news_comments;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS product_images;
+DROP TABLE IF EXISTS cart_admin_statuses;
 DROP TABLE IF EXISTS cart_items;
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
@@ -106,6 +107,17 @@ CREATE TABLE cart_items (
     CONSTRAINT fk_cart_items_product FOREIGN KEY (product_id) REFERENCES products(id)
         ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT uq_cart_user_product UNIQUE (user_id, product_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE cart_admin_statuses (
+    user_id INT UNSIGNED NOT NULL PRIMARY KEY,
+    status ENUM('active','abandoned','contacted','archived') NOT NULL DEFAULT 'active',
+    note TEXT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_cart_admin_statuses_user FOREIGN KEY (user_id) REFERENCES users(id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    INDEX idx_cart_admin_statuses_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE orders (

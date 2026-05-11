@@ -115,6 +115,26 @@ class ProductModel extends Model {
         );
     }
 
+    public static function searchSuggestions(string $kw, int $limit = 6): array {
+        return DB::fetchAll(
+            "SELECT p.id, p.name, p.slug, p.price, p.sale_price, p.cover_image, c.name AS category_name
+             FROM products p
+             JOIN categories c ON p.category_id = c.id
+             WHERE p.status='active' AND p.deleted_at IS NULL
+               AND (p.name LIKE ? OR p.slug LIKE ?)
+             ORDER BY
+               CASE
+                 WHEN p.name LIKE ? THEN 0
+                 WHEN p.name LIKE ? THEN 1
+                 ELSE 2
+               END,
+               p.is_featured DESC,
+               p.id DESC
+             LIMIT ?",
+            ["%$kw%", "%$kw%", $kw . '%', '% ' . $kw . '%', $limit]
+        );
+    }
+
     public static function adminList(int $offset, int $limit, string $search = ''): array {
         $where = "p.deleted_at IS NULL";
         $params = [];

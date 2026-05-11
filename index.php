@@ -61,6 +61,7 @@ $router->get('/logout',              'AuthController@logout');
 $router->get('/products',            'ProductController@index');
 $router->get('/product/{slug}',      'ProductController@detail');
 $router->get('/search',              'ProductController@search');
+$router->get('/search/suggest',      'ProductController@suggest');
 $router->get('/category/{slug}',     'ProductController@category');
 
 // Cart (AJAX + page)
@@ -121,6 +122,11 @@ $router->post('/admin/products/delete/{id}', 'AdminProductController@delete');
 $router->get('/admin/orders',         'AdminOrderController@index');
 $router->get('/admin/orders/{id}',    'AdminOrderController@detail');
 $router->post('/admin/orders/status/{id}', 'AdminOrderController@updateStatus');
+
+// Admin carts
+$router->get('/admin/carts',          'AdminCartController@index');
+$router->get('/admin/carts/{id}',     'AdminCartController@detail');
+$router->post('/admin/carts/status/{id}', 'AdminCartController@updateStatus');
 
 // Admin news
 $router->get('/admin/news',           'AdminNewsController@index');
